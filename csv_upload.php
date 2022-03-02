@@ -35,7 +35,7 @@ Nome:<input type="text" name="nome" id="nome">
 				$statement->bind_param('ss',$destino,  $_POST["nome"] );
 
 				if ($statement->execute() && $statement->affected_rows>0){
-					echo "A imagem foi inserida";
+					echo "O ficheiro foi inserido";
 				}else{
 					echo "Ocorreu um erro na Inserecao";
 				}
