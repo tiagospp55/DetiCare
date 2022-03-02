@@ -41,8 +41,8 @@ Nome:<input type="text" name="nome" id="nome">
 				}
 				
 				$statement->close();
-				$page=shell_exec("python xlsx_to_csv.py " .$destino. " ".$file_name); 
-
+				$page=shell_exec("python Code/xlsx_to_csv.py " .$destino. " ".$file_name); 
+				
 			}else{
 			    echo "Erro no upload";
 			}

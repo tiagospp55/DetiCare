@@ -8,6 +8,8 @@ import datetime
 origem = sys.argv[1]
 file_csv_name = sys.argv[2]
 
+
+
 ## opening the xlsx file
 xlsx = openpyxl.load_workbook(origem)
 
@@ -18,8 +20,8 @@ sheet = xlsx.active
 data = sheet.rows
 
 ## creating a csv file
-save_path_csv = '.Files/Folder_CSVs'
-save_path_json = '.Files/Folder_JSONs'
+save_path_csv = 'Files/Folder_CSVs'
+save_path_json = 'Files/Folder_JSONs'
 
 ##completeName = os.path.join(save_path,"data.csv") 
 completeName = os.path.join(save_path_csv, file_csv_name + ".csv")            
@@ -62,6 +64,7 @@ for i in range(1, sheet.max_row):
         counter += 1
 
 json_file = open(save_path_json+"/"+file_csv_name+".json", 'wb')
-json_content = json.dumps(json_dic, indent=4, sort_keys=True).encode('utf-8')
+print(json_dic)
+json_content = json.dumps(json_dic, indent=4).encode('utf-8')
 json_file.write(json_content)
 json_file.close()
