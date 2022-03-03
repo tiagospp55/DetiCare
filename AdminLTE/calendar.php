@@ -156,7 +156,7 @@
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <?php include("Side_Bar.html") ?>
+    <?php  include("Side_Bar.html") ?> 
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
