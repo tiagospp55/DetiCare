@@ -9,12 +9,23 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../AdminLTE/plugins/fontawesome-free/css/all.min.css">
-  <!-- Theme style -->
+  <!-- Theme style BruhBruh -->
   <link rel="stylesheet" href="../../AdminLTE/dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+
+<?php
+
+	$conn=new mysqli('localhost','root','','peebd');
+
+	if($conn->connect_error){
+		die("ERROR: (".$conn->errno.")->".$conn->error);
+	}else{
+		echo "<script>console.log('Connected');</script>";
+	}
+
+?><div class="wrapper">
  
 
   <!-- Content Wrapper. Contains page content -->
