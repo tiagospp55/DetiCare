@@ -7,7 +7,7 @@
 
 <body>
 <?php
-
+//bruh
 	$conn=new mysqli('localhost','root','','peebd');
 
 	if($conn->connect_error){
