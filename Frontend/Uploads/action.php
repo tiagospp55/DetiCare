@@ -8,17 +8,24 @@
 	}
 var_dump($_POST);
 
-	if (isset($_POST["upload"])) {
-        var_dump("true");
-		$destino ="../../Files/Folder_XLSX/" . uniqid() . $_FILES["filesu"]["name"]; 
-		$file_name = $_POST["nome"];
-
+	if (isset($_POST["upload"])) { 
+		$file_name = $_FILES["filesu"]["name"];
+		$value = $_POST["form_id"];
+		if($value == 1){
+			$destino ="Files/Type_1/Folder_XLSX/" . uniqid() . $_FILES["filesu"]["name"];
+		}elseif ($value == 2){
+			$destino ="Files/Type_2/Folder_XLSX/" . uniqid() . $_FILES["filesu"]["name"];
+		}elseif ($value == 3){
+			$destino ="Files/Type_3/Folder_XLSX/" . uniqid() . $_FILES["filesu"]["name"];
+		}elseif ($value == 4){
+			$destino ="Files/Type_4/Folder_XLSX/" . uniqid() . $_FILES["filesu"]["name"];
+		}
 		if($_FILES["filesu"]["type"]=="application/vnd.ms-excel" || $_FILES["filesu"]["type"]=="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"){
 			if(move_uploaded_file($_FILES["filesu"]["tmp_name"], $destino)) {
-				$query="INSERT INTO csv(path,name, date) VALUES(?,?, now())";
+				$query="INSERT INTO csv(path, type, date) VALUES(?,?, now())";
 				
 				$statement=$conn->prepare($query);
-				$statement->bind_param('ss',$destino,  $_POST["nome"] );
+				$statement->bind_param('ss',$destino,  $_POST["form_id"] );
 
 				if ($statement->execute() && $statement->affected_rows>0){
 					echo "O ficheiro foi inserido";
@@ -27,7 +34,8 @@ var_dump($_POST);
 				}
 				
 				$statement->close();
-				$page=shell_exec("python Code/xlsx_to_csv.py " .$destino. " ".$file_name); 
+				$page=shell_exec("python xlsx_to_csv.py " .$destino. " ".$file_name. " " .$value); 
+				
 				header("Location: upload.php");
 			}else{
 			    echo "Erro no upload";
