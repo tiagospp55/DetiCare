@@ -60,28 +60,31 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action = "action.php" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
+                  <input type="text" id="form_id" name="form_id" value="1" hidden>
+                    <label for="nome">Name</label>
+                    <input type="text" name="nome" id="nome">
                     <label for="exampleInputFile">File input</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="filesu">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                       </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                      </div>
+                   
                     </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" name="upload">Submit</button>
                 </div>
               </form>
             </div>
+
+            
             <!-- /.card -->
             <div class="card card-primary">
               <div class="card-header">
