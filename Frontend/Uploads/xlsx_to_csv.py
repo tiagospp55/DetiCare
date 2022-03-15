@@ -77,7 +77,8 @@ for i in range(1, sheet.max_row):
         json_dic[str(sheet['A'][i].value)][col_names[counter]] = val
         counter += 1
 
-json_file = open(save_path_json+"/"+file_csv_name+".json", 'wb')
+json_path = os.path.join(save_path_json, random_name + file_csv_name + ".json")
+json_file = open(json_path, 'wb')
 print(json_dic)
 json_content = json.dumps(json_dic, indent=4).encode('utf-8')
 json_file.write(json_content)
