@@ -10,7 +10,7 @@ import random
 
 origem = sys.argv[1]
 file_csv_name = sys.argv[2]
-type = sys.argv[3]
+type_number = sys.argv[3]
 
 
 
@@ -24,16 +24,16 @@ sheet = xlsx.active
 data = sheet.rows
 
 ## creating a csv file
-if type == '1':
+if type_number == '1':
     save_path_csv = 'Files/Type_1/Folder_CSVs'
     save_path_json = 'Files/Type_1/Folder_JSONs'
-elif type == '2':
+elif type_number == '2':
     save_path_csv = 'Files/Type_2/Folder_CSVs'
     save_path_json = 'Files/Type_2/Folder_JSONs'
-elif type == '3':
+elif type_number == '3':
     save_path_csv = 'Files/Type_3/Folder_CSVs'
     save_path_json = 'Files/Type_3/Folder_JSONs'
-elif type == '4':
+elif type_number == '4':
     save_path_csv = 'Files/Type_4/Folder_CSVs'
     save_path_json = 'Files/Type_4/Folder_JSONs'
 ##completeName = os.path.join(save_path,"data.csv") 
