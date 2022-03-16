@@ -7,15 +7,9 @@
 
 <body>
 <?php
-//bruh
-	$conn=new mysqli('localhost','root','','peebd');
-
-	if($conn->connect_error){
-		die("ERROR: (".$conn->errno.")->".$conn->error);
-	}else{
-		echo "<script>console.log('Connected');</script>";
-	}
-
+	session_start();
+	include 'BD.php';
+	include 'Entrar.php';
 ?>
 <form enctype="multipart/form-data" method="post">
 <input type="hidden" name="MAX_FILE_SIZE" value="100000000">
@@ -50,7 +44,19 @@ Nome:<input type="text" name="nome" id="nome">
 		}else
 			echo "Este servidor não suporta este tipo de ficheiros";
 	}
+
 ?>
  <button onclick="document.location='graph.html'">Graphic</button> 
+
+
+
+ <h1>TESTES SESSAO</h1>
+	<?php
+		echo "<h1>".$_SESSION["id"]."</h1>";
+		echo "<h1>".$_SESSION["email"]."</h1>";
+		echo "<h1>".$_SESSION["nome"]."</h1>";
+		echo "<h1>".$_SESSION["sessao"]."</h1>";
+	?>
+
 </body>
 </html>

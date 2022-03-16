@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <html>		
 	<!DOCTYPE html>
 <html lang="en">
@@ -133,6 +135,10 @@
 				h.appendChild(t); 
 				document.getElementById('uauas').appendChild(h);
 			}
+
+			function sair(){
+				window.location.href = "Sair.php";
+			}
 		</script>
                 
 
@@ -143,31 +149,12 @@
             </div>
       </div>
     
-      <?php
-		include 'BD.php';
-	  ?>
-	
+
+	<!-- Retirei merdas daqui 1 -->
 	<?php
-		if (isset($_POST["submiter"])) {
-			if (isset($_POST["passlog"]) && isset($_POST["maillog"])) {
-				$query = "SELECT Pass FROM logins where Email=?";
-				$statement = $conn->prepare($query);
-				$statement->bind_param('s',$_POST["maillog"]);
-				$statement->execute();
-				$statement->bind_result($pasconf);
-				if ($statement->fetch()) {
-					if (password_verify($_POST["passlog"],$pasconf)) {
-						echo "Password Valid";
-					}else{
-						echo "Password invalida ou email ja registado com outro id";
-					}
-				}else {
-					echo "<div>Email nao encontrado!</div>";
-				}
-				$statement->close();
-			}
-		}
-	?>
+		include 'BD.php';
+		include 'Entrar.php';
+	 ?>
 	<h1>Login</h1>
 	<form method="POST">
 		<table>
@@ -180,8 +167,22 @@
 				<td><input type="password" name="passlog"></td>
 			</tr>
 		</table>
-		<input type="submit" name="submiter">
+		<input type="submit" value="in" name="login2">
 	</form>
+
+
+	<h1>TESTES COM SESSAO</h1>
+	<button onclick="sair()" value="out" name="login2">Out</button>
+
+
+	<?php
+		echo "<h1>".$_SESSION["id"]."</h1>";
+		echo "<h1>".$_SESSION["email"]."</h1>";
+		echo "<h1>".$_SESSION["nome"]."</h1>";
+		echo "<h1>".$_SESSION["sessao"]."</h1>";
+	?>
+
+
 	<?php  
 		$conn->close();
 	?>
