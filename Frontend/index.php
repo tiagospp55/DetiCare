@@ -44,6 +44,9 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="contacts.php" class="nav-link">Contact</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="upload.php" class="nav-link">Uploads</a>
+      </li>
     </ul>
 
     <!-- Right navbar links -->
@@ -64,16 +67,7 @@
             <i class="fas fa-envelope mr-2"></i> 4 new messages
             <span class="float-right text-muted text-sm">3 mins</span>
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
+          
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
@@ -125,12 +119,11 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+          <li class="nav-item ">
+            <a href="upload.php" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
+                Uploads
               </p>
             </a>
           </li>
@@ -168,6 +161,15 @@
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="pages/widgets.html" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Widgets
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
