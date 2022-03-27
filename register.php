@@ -113,27 +113,32 @@
               var h = '';
 
               function verify() {
-
+                alert("Aol1")
                 var a = document.getElementById('email').value;
                 var b = document.getElementById('name').value;
                 var x = document.getElementById('pass').value;
                 var x2 = document.getElementById('confpass').value;
                 var d = b.length;
                 if (x != '' && x2 != '' && a != '' && b != '') {
+                  alert("Aol1")
                   if (document.forms[0].email.value == "" || document.forms[0].email.value.indexOf('@') == -1 || document.forms[0].email.value.indexOf('.') == -1) {
                     err = "Por favor, insira um E-MAIL válido!";
                   } else {
                     if (d < 3 || d > 20) {
+                      alert("Aol3")
                       err = "Por favor, insire um nome entre 3 e 20 caracteres!";
                     } else {
                       if (x == x2) {
+                        err = "";
                         document.getElementById('regista').submit();
                       } else {
+                        alert("Aol2")
                         err = "Passwords não coincidem!";
                       }
                     }
                   }
                 } else {
+                  alert("Aol1")
                   err = "Os campos nao estao todos preenchidos!";
                 }
                 if (h != '') {

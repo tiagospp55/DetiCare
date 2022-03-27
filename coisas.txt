@@ -21,3 +21,22 @@
 			}
 		}
 	?>
+
+
+/////////////////////////////////////////REGMEDICOS///////////////////////////////////////
+<?php
+ 	$output = '';
+     $query = "SELECT nome FROM medicos ORDER BY id";
+     $statement = $conn->prepare($query);
+     $statement->execute();
+     $statement->bind_result($nome);
+     if ($statement->fetch()) {
+          echo '<h2 style="font-family:roboto;">O Email que colocou ja esta registado</h2>';
+          $statement->close();
+     } else {
+          $statement->close();
+      	$output .= '<option value="'.$row["nome"].'">'.$row["nome"].'</option>';
+          }
+	}
+	echo $output;
+?>

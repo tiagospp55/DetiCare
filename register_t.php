@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+  include 'BD.php';
+?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,9 +27,9 @@
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>
 
-      <form action="../../index.html" method="post">
+      <form method="post" action="#" id="regista">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name">
+          <input type="text" name="name" id="name" class="form-control" placeholder="Full name">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -34,7 +37,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" id="email" name="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -42,7 +45,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" id="pass" name="pass" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -50,14 +53,26 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
+          <input type="password" id="confpass" name="confpass" class="form-control" placeholder="Retype password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="input-group mb-3">
+          <select name="med" id="med" style="width:88%;">
+            <option value="-1">None</option>
+            <?php include 'RegMedicos.php';?>
+          </select>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
               <input type="checkbox" id="agreeTerms" name="terms" value="agree">
@@ -68,18 +83,89 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <button onclick="verify()" class="btn btn-primary btn-block">Register</button>
           </div>
           <!-- /.col -->
         </div>
-      </form>
+      <?php
+      
+      if (isset($_POST['confpass'])) {
+        if (isset($_POST['email']) ) {
+          $query = "SELECT id FROM users where email=?";
+          $statement = $conn->prepare($query);
+          $statement->bind_param('s', $_POST['email']);
+          $statement->execute();
+          $statement->bind_result($id);
+          if ($statement->fetch()) {
+            echo '<h2 style="font-family:roboto;">O Email que colocou ja esta registado</h2>';
+            $statement->close();
+          } else {
+            $statement->close();
+            $seed = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZ' . '0123456789'); // and any other characters
+            shuffle($seed); // probably optional since array_is randomized; this may be redundant
+            $rand = '';
+            foreach (array_rand($seed, 5) as $k) $rand .= $seed[$k];
+            $p = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+            $query = "INSERT INTO users(email,nome,password,ConfCodeEmail,emailConf,Disponivel,idMedico) VALUES(?,?,?,?,?,'SIM',?)";
+            $statement = $conn->prepare($query);
+            $ya = 'N';
+            $statement->bind_param('ssssss', $_POST['email'], $_POST['name'], $p, $rand, $ya,$_POST['med']);
+            if ($statement->execute() && $statement->affected_rows > 0) {
+              $statement->close();
+              echo "<script type='text/javascript'>window.location.href = 'csv_upload.php';</script>";
+            } else {
+              echo "<h4>Ocorreu um erro na insereção</h4>";
+            }
+          }
+        }
+      }
 
+      $conn->close();
+      ?>
+      <script type="text/javascript">
+              var h = '';
 
+              function verify() {
+                var a = document.getElementById('email').value;
+                var b = document.getElementById('name').value;
+                var x = document.getElementById('pass').value;
+                var x2 = document.getElementById('confpass').value;
+                var d = b.length;
+                if (x != '' && x2 != '' && a != '' && b != '') {
+                  if (document.forms[0].email.value == "" || document.forms[0].email.value.indexOf('@') == -1 || document.forms[0].email.value.indexOf('.') == -1) {
+                    err = "Por favor, insira um E-MAIL válido!";
+                  } else {
+                    if (d < 3 || d > 20) {
+                      err = "Por favor, insire um nome entre 3 e 20 caracteres!";
+                    } else {
+                      if (x == x2) {
+                        err='';
+                        document.getElementById('regista').submit();
+                      } else {
+                        err = "Passwords não coincidem!";
+                      }
+                    }
+                  }
+                } else {
+                  err = "Os campos nao estao todos preenchidos!";
+                }
+                if (err!='') {alert(err);}
+                if (h != '') {
+                  h.remove();
+                }
+                h = document.createElement("H2") // Create a <h1> element
+                h.style.fontFamily = "roboto";
+                var t = document.createTextNode(err); // Create a text node
+                h.appendChild(t);
+                document.getElementById('uauas').appendChild(h);
+              }
+            </script>
       <a href="login.html" class="text-center">I already have a membership</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->
 </div>
+
 <!-- /.register-box -->
 
 <!-- jQuery -->
