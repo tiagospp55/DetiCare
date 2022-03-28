@@ -1,0 +1,70 @@
+Measurement Date,Timezone,SYS(mmHg),DIA(mmHg),Pulse(bpm),Irregular heartbeat detected,IHB detection counts(times),Body Movement,Cuff wrap guide,Positioning Indicator,Room temperature(°C),Measurement Mode,Device
+2021-08-01 08:32:00,Europe/Lisbon,139,104,66,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-01 08:34:00,Europe/Lisbon,125,91,60,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-01 08:35:00,Europe/Lisbon,132,102,57,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-01 08:39:00,Europe/Lisbon,127,94,68,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-08 07:39:00,Europe/Lisbon,131,98,58,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-08 07:41:00,Europe/Lisbon,124,90,56,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-08 07:42:00,Europe/Lisbon,126,88,68,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-11 08:46:00,Europe/Lisbon,110,83,74,Not Detected,,Not Detected,Not OK,,,,M7 Intelli IT
+2021-08-11 08:48:00,Europe/Lisbon,111,82,74,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-11 08:52:00,Europe/Lisbon,128,90,69,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-11 08:56:00,Europe/Lisbon,109,84,66,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-24 07:27:00,Europe/Lisbon,121,93,65,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-24 07:29:00,Europe/Lisbon,121,88,76,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-08-24 07:30:00,Europe/Lisbon,130,91,74,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-05 09:06:00,Europe/Lisbon,117,93,68,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-05 09:09:00,Europe/Lisbon,124,86,74,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-05 09:11:00,Europe/Lisbon,117,87,64,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-11 07:56:00,Europe/Lisbon,129,95,69,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-11 07:57:00,Europe/Lisbon,125,90,57,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-11 08:01:00,Europe/Lisbon,144,97,55,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-11 08:03:00,Europe/Lisbon,121,98,63,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-11 08:57:00,Europe/Lisbon,128,94,64,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-11 08:58:00,Europe/Lisbon,115,89,69,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-19 08:49:00,Europe/Lisbon,118,88,60,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-19 08:53:00,Europe/Lisbon,126,92,62,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-19 08:54:00,Europe/Lisbon,128,88,55,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-29 08:43:00,Europe/Lisbon,127,90,65,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-29 08:44:00,Europe/Lisbon,130,93,63,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-09-29 08:45:00,Europe/Lisbon,122,90,66,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-16 09:33:00,Europe/Lisbon,131,105,78,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-16 09:34:00,Europe/Lisbon,133,107,75,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-16 09:35:00,Europe/Lisbon,140,103,64,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-23 09:57:00,Europe/Lisbon,146,103,61,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-23 09:58:00,Europe/Lisbon,133,102,63,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-23 10:02:00,Europe/Lisbon,136,100,60,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-23 10:03:00,Europe/Lisbon,132,101,58,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-24 11:14:00,Europe/Lisbon,120,95,73,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-24 11:15:00,Europe/Lisbon,111,90,74,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-24 11:16:00,Europe/Lisbon,121,89,72,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-26 10:13:00,Europe/Lisbon,145,101,69,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-26 10:14:00,Europe/Lisbon,134,98,71,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-26 10:16:00,Europe/Lisbon,131,106,82,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-26 10:17:00,Europe/Lisbon,124,96,64,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-26 10:22:00,Europe/Lisbon,138,112,77,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-26 10:23:00,Europe/Lisbon,138,101,74,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-10-26 10:25:00,Europe/Lisbon,133,101,62,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-01 10:16:00,Europe/Lisbon,126,101,75,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-01 10:17:00,Europe/Lisbon,127,100,76,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-04 09:16:00,Europe/Lisbon,134,104,67,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-04 09:17:00,Europe/Lisbon,127,89,74,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-04 09:20:00,Europe/Lisbon,127,98,74,Detected,,Not Detected,Not OK,,,,M7 Intelli IT
+2021-11-04 09:21:00,Europe/Lisbon,118,94,66,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-04 09:22:00,Europe/Lisbon,134,99,69,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-27 09:36:00,Europe/Lisbon,148,106,73,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-27 09:39:00,Europe/Lisbon,155,102,76,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-27 09:40:00,Europe/Lisbon,139,105,78,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-27 09:41:00,Europe/Lisbon,145,100,78,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-27 09:42:00,Europe/Lisbon,137,99,80,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-27 09:43:00,Europe/Lisbon,140,92,77,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-27 09:44:00,Europe/Lisbon,131,99,77,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-27 09:45:00,Europe/Lisbon,135,94,76,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-27 09:47:00,Europe/Lisbon,137,97,85,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-27 09:48:00,Europe/Lisbon,133,106,82,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2021-11-27 09:49:00,Europe/Lisbon,135,89,69,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2022-01-16 09:33:00,Europe/Lisbon,138,102,83,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2022-01-16 09:34:00,Europe/Lisbon,139,93,73,Not Detected,,Not Detected,OK,,,,M7 Intelli IT
+2022-01-16 09:35:00,Europe/Lisbon,124,89,69,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2022-01-16 09:36:00,Europe/Lisbon,134,94,80,Detected,,Not Detected,OK,,,,M7 Intelli IT
+2022-01-16 09:38:00,Europe/Lisbon,129,95,74,Detected,,Not Detected,OK,,,,M7 Intelli IT
