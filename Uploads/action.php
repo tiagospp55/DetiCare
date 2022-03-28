@@ -6,7 +6,7 @@
 	}else{
 		echo "<script>console.log('Connected');</script>";
 	}
-var_dump($_POST);
+
 
 	if (isset($_POST["upload"])) { 
 		$file_name = $_FILES["filesu"]["name"];

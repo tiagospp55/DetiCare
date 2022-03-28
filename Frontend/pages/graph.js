@@ -1,7 +1,7 @@
 let httpRequest = new XMLHttpRequest();
 // aqui têm de passar o nome correto do ficheiro json
 
-httpRequest.open("GET", "Files/Folder_JSONs/aa.json", true);
+httpRequest.open("GET", "aa.json", true);
 httpRequest.send();
 httpRequest.addEventListener("readystatechange", function() {
     if (this.readyState === this.DONE) {

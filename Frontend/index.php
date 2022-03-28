@@ -83,7 +83,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">      
     <!-- Brand Logo -->
     <a href="index.php" class="brand-link">
       
@@ -108,7 +108,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a onclick="go_to('profile.php')" class="nav-link active" id="profile">
+            <a onclick="go_to('profile.php')" class="nav-link " id="profile">
               <i class="far fa-user nav-icon"></i>
               <p>
                 Profile
@@ -124,7 +124,7 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a onclick="go_to('teste.php')" class="nav-link " id="teste">
+            <a onclick="go_to('graph.php')" class="nav-link " id="graph">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
               Batimentos Cardiacos
@@ -132,15 +132,15 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a onclick="go_to('teste.php')" class="nav-link " id="teste">
+            <a onclick="go_to('graph2.php')" class="nav-link " id="graph2">
               <i class="far fa-user nav-icon "></i>
               <p>
-              Oxigenio
+              Heart Rate
               </p>
             </a>
           </li>
           <li class="nav-item ">
-            <a onclick="go_to('teste.php')" class="nav-link " id="teste">
+            <a onclick="go_to('graph3.php')" class="nav-link " id="graph3">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
               Outro 1
@@ -148,7 +148,7 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a onclick="go_to('teste.php')" class="nav-link " id="teste">
+            <a onclick="go_to('graph4.php')" class="nav-link " id="graph4">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Outro 2
@@ -241,7 +241,59 @@
           nav_link.classList.remove('active');
         });
         document.getElementById(menu_id).classList.add('active');
+
+        if (page == 'graph.php') {
+          make_graph();
+        }
+
       });
+
+    
+  }
+
+  function make_graph() {
+    let httpRequest = new XMLHttpRequest();
+    // aqui têm de passar o nome correto do ficheiro json
+
+    httpRequest.open("GET", "./pages/aa.json", true);
+    httpRequest.send();
+    httpRequest.addEventListener("readystatechange", function() {
+        if (this.readyState === this.DONE) {
+            // when the request has completed
+            let json_file = JSON.parse(this.response);
+            console.log(Object.keys(json_file))
+
+            let labels = []
+            let data = []
+            for (let key of Object.keys(json_file)) {
+              labels.push(json_file[key]["Measurement Date"])
+              data.push(json_file[key]["Pulse"])
+            }
+
+            new Chart(document.getElementById("line-chart"), {
+              type: 'line',
+              data: {
+                  // y - pulso
+                  // x - tempo
+                labels: labels,
+                datasets: [
+                  { 
+                    data: data,
+                    label: "Pulse",
+                    borderColor: "#3e95cd",
+                    fill: false
+                  }
+                ]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: 'Pulse by time'
+                }
+              }
+            });
+        }
+    }); 
   }
 </script>
 
