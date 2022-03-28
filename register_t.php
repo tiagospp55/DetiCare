@@ -71,7 +71,7 @@
             </div>
           </div>
         </div>
-      </form>
+      
       <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
@@ -87,34 +87,63 @@
           </div>
           <!-- /.col -->
         </div>
+      </form>
       <?php
-      
       if (isset($_POST['confpass'])) {
         if (isset($_POST['email']) ) {
-          $query = "SELECT id FROM users where email=?";
-          $statement = $conn->prepare($query);
-          $statement->bind_param('s', $_POST['email']);
-          $statement->execute();
-          $statement->bind_result($id);
-          if ($statement->fetch()) {
-            echo '<h2 style="font-family:roboto;">O Email que colocou ja esta registado</h2>';
-            $statement->close();
-          } else {
-            $statement->close();
-            $seed = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZ' . '0123456789'); // and any other characters
-            shuffle($seed); // probably optional since array_is randomized; this may be redundant
-            $rand = '';
-            foreach (array_rand($seed, 5) as $k) $rand .= $seed[$k];
-            $p = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-            $query = "INSERT INTO users(email,nome,password,ConfCodeEmail,emailConf,Disponivel,idMedico) VALUES(?,?,?,?,?,'SIM',?)";
+          if (isset($_POST['terms'])) {
+            $query = "SELECT id FROM medicos where email=?";
             $statement = $conn->prepare($query);
-            $ya = 'N';
-            $statement->bind_param('ssssss', $_POST['email'], $_POST['name'], $p, $rand, $ya,$_POST['med']);
-            if ($statement->execute() && $statement->affected_rows > 0) {
+            $statement->bind_param('s', $_POST['email']);
+            $statement->execute();
+            $statement->bind_result($id);
+            if ($statement->fetch()) {
+              echo '<h2 style="font-family:roboto;">O Email que colocou ja esta registado</h2>';
               $statement->close();
-              echo "<script type='text/javascript'>window.location.href = 'csv_upload.php';</script>";
             } else {
-              echo "<h4>Ocorreu um erro na insereção</h4>";
+              $statement->close();
+              $seed = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZ' . '0123456789'); // and any other characters
+              shuffle($seed); // probably optional since array_is randomized; this may be redundant
+              $rand = '';
+              foreach (array_rand($seed, 5) as $k) $rand .= $seed[$k];
+              $p = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+              $query = "INSERT INTO medicos(nome,localTrabalho,email,pass) VALUES(?,'desconhecido',?,?)";
+              $statement = $conn->prepare($query);
+              $ya = 'N';
+              $statement->bind_param('sss', $_POST['name'],$_POST['email'], $p);
+              if ($statement->execute() && $statement->affected_rows > 0) {
+                $statement->close();
+                echo "<script type='text/javascript'>window.location.href = 'csv_upload.php';</script>";
+              } else {
+                echo "<h4>Ocorreu um erro na insereção</h4>";
+              }
+            }
+          }else{
+            $query = "SELECT id FROM users where email=?";
+            $statement = $conn->prepare($query);
+            $statement->bind_param('s', $_POST['email']);
+            $statement->execute();
+            $statement->bind_result($id);
+            if ($statement->fetch()) {
+              echo '<h2 style="font-family:roboto;">O Email que colocou ja esta registado</h2>';
+              $statement->close();
+            } else {
+              $statement->close();
+              $seed = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZ' . '0123456789'); // and any other characters
+              shuffle($seed); // probably optional since array_is randomized; this may be redundant
+              $rand = '';
+              foreach (array_rand($seed, 5) as $k) $rand .= $seed[$k];
+              $p = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+              $query = "INSERT INTO users(email,nome,password,ConfCodeEmail,emailConf,Disponivel,idMedico) VALUES(?,?,?,?,?,'SIM',?)";
+              $statement = $conn->prepare($query);
+              $ya = 'N';
+              $statement->bind_param('ssssss', $_POST['email'], $_POST['name'], $p, $rand, $ya,$_POST['med']);
+              if ($statement->execute() && $statement->affected_rows > 0) {
+                $statement->close();
+                echo "<script type='text/javascript'>window.location.href = 'csv_upload.php';</script>";
+              } else {
+                echo "<h4>Ocorreu um erro na insereção</h4>";
+              }
             }
           }
         }
