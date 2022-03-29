@@ -65,7 +65,7 @@ function make_graph_blood_pressure() {
 				data:data,
 				options: {
 					scales: {
-						x: {
+						xAxes: {
 							stacked: true,
 						},
 					}
