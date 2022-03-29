@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  $_SESSION["last_page"] = "profile.php";
+?>
+
+
 
       <div class="container-fluid">
         <div class="row">

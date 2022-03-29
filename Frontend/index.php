@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="../AdminLTE/plugins/summernote/summernote-bs4.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free-6.1.1-web/css/all.min.css"> 
   <!-- Theme style -->
   <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css">
 </head>
@@ -109,7 +109,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a onclick="go_to('profile.php')" class="nav-link " id="profile">
-              <i class="far fa-user nav-icon"></i>
+              <i class="fa-solid fa-user nav-icon"></i>
               <p>
                 Profile
               </p>
@@ -117,25 +117,26 @@
           </li>
           <li class="nav-item ">
             <a onclick="go_to('upload.php')" class="nav-link " id="upload">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="fa-solid fa-file-upload nav-icon" ></i>
               <p>
+              
                 Uploads
               </p>
             </a>
           </li>
           <li class="nav-item ">
             <a onclick="go_to('graph.php')" class="nav-link " id="graph">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="fa-solid fa-heart nav-icon "></i>
               <p>
-              Batimentos Cardiacos
+              Hearth Rate
               </p>
             </a>
           </li>
           <li class="nav-item ">
             <a onclick="go_to('graph2.php')" class="nav-link " id="graph2">
-              <i class="far fa-user nav-icon "></i>
+              <i class="fa-solid fa-lungs nav-icon "></i>
               <p>
-              Heart Rate
+              Oxygen
               </p>
             </a>
           </li>
@@ -157,7 +158,8 @@
           </li>
           <li class="nav-item ">
             <a onclick="go_to('contacts.php')" class="nav-link " id="contacts">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="fa-solid fa-address-card nav-icon"></i>
+             
               <p>
               Contacts
               </p>
@@ -221,6 +223,7 @@
 
 <!-- Page specific script -->
 
+<?php include("functions.php")?>
 
 <script>
   $(document).ready(function () {
@@ -243,62 +246,23 @@
         document.getElementById(menu_id).classList.add('active');
 
         if (page == 'graph.php') {
-          make_graph();
+          make_graph_SYS();
+          
+          make_graph_DIA();
+          
         }
 
       });
 
-    
   }
 
-  function make_graph() {
-    let httpRequest = new XMLHttpRequest();
-    // aqui têm de passar o nome correto do ficheiro json
-
-    httpRequest.open("GET", "./pages/aa.json", true);
-    httpRequest.send();
-    httpRequest.addEventListener("readystatechange", function() {
-        if (this.readyState === this.DONE) {
-            // when the request has completed
-            let json_file = JSON.parse(this.response);
-            console.log(Object.keys(json_file))
-
-            let labels = []
-            let data = []
-            for (let key of Object.keys(json_file)) {
-              labels.push(json_file[key]["Measurement Date"])
-              data.push(json_file[key]["Pulse"])
-            }
-
-            new Chart(document.getElementById("line-chart"), {
-              type: 'line',
-              data: {
-                  // y - pulso
-                  // x - tempo
-                labels: labels,
-                datasets: [
-                  { 
-                    data: data,
-                    label: "Pulse",
-                    borderColor: "#3e95cd",
-                    fill: false
-                  }
-                ]
-              },
-              options: {
-                title: {
-                  display: true,
-                  text: 'Pulse by time'
-                }
-              }
-            });
-        }
-    }); 
-  }
+  
 </script>
+
+
 
 </body>
 </html>
 
 
-<!-- <?php //include("bruh.html") php?>-->
+<!-- <?php //include("bruh.html")?>-->

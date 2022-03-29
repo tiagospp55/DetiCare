@@ -53009,4 +53009,10 @@ a.text-muted:hover {
 .dark-mode .border-dark {
   border-color: #4b545c !important;
 }
+
+.cen-div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
 /*# sourceMappingURL=adminlte.css.map */
