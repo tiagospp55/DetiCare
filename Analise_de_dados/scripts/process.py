@@ -1,6 +1,7 @@
 import pandas as pd
+import sys
 
-df=pd.read_csv('BloodPressure_202108-202201.csv')
+df=pd.read_csv(sys.argv[1])
 
 dates=df['Measurement Date'].unique()
 dates=list(dates)
@@ -36,5 +37,5 @@ new_df['SYS_mean']=SYS_mean
 new_df['SYS_max']=SYS_max
 new_df['SYS_min']=SYS_min
 
-new_df.to_csv('teste_blood_presure_processado.csv',index=False)
+new_df.to_csv(sys.argv[1][:-4]+'.csv',index=False)
 print(new_df)

@@ -13,31 +13,64 @@ httpRequest.addEventListener("readystatechange", function() {
         let pulse= []
         let dia_max= []
         let dia_min= []
+        let sys_max= []
+        let sys_min= []
         for (let key of Object.keys(json_file)) {
           labels.push(json_file[key]["day"].substring(0,11))
           pulse.push(json_file[key]["Pulse_mean"])
           dia_min.push(json_file[key]["DIA_min"])
           dia_max.push(json_file[key]["DIA_max"])
+          sys_min.push(json_file[key]["SYS_min"])
+          sys_max.push(json_file[key]["SYS_max"])
         }
-	console.log(labels[0]);
-	var labels1=labels;
-	console.log(dia_max);
+	var joined_dia=[];
+	for (let i = 0; i < dia_min.length; i++) {
+		var temp=[];
+  	temp.push(dia_min[i]);
+  	temp.push(dia_max[i]);
+		joined_dia.push(temp);
+	}
+	var joined_sys=[];
+	for (let i = 0; i < sys_min.length; i++) {
+		var temp=[];
+  	temp.push(sys_min[i]);
+  	temp.push(sys_max[i]);
+		joined_sys.push(temp);
+	}
+
 	const ctx = document.getElementById('line-chart');
 		const data = {
 					labels:labels,
 					datasets: [{
+						type:'bar',
 						label: 'DIA',
-						data:[ 
-							[dia_min[0],dia_max[0]],
-							[dia_min[1],dia_max[1]],
-							],
-						backgroundColor: 'rgba(245, 20, 20, 1.0)',
+						data:joined_dia,
+						backgroundColor: 'rgba(52, 186, 235)',
+						barPercentage:0.8,
+					},
+					{
+						type:'line',
+						label: 'Pulse mean',
+						data:pulse,
+						borderColor: '#34eb5f',
+					},
+					{
+						type:'bar',
+						label: 'SYS',
+						data:joined_sys,
+						backgroundColor: '#eb3440',
+						barPercentage:0.8,
 					}]
 		};
 		const config = {
 			type: 'bar',
 			data:data,
 			options: {
+				scales: {
+					x: {
+						stacked: true,
+					},
+    		}
 			}
 		};
 		const myChart = new Chart(ctx,config);
