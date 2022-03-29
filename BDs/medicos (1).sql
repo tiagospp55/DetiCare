@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Mar-2022 às 16:04
+-- Tempo de geração: 30-Mar-2022 às 00:04
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.3.31
 
@@ -30,19 +30,22 @@ SET time_zone = "+00:00";
 CREATE TABLE `medicos` (
   `id` int(11) NOT NULL,
   `nome` text NOT NULL,
-  `localTrabalho` text NOT NULL
+  `localTrabalho` text NOT NULL,
+  `email` text NOT NULL,
+  `pass` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `medicos`
 --
 
-INSERT INTO `medicos` (`id`, `nome`, `localTrabalho`) VALUES
-(2, 'JONQUIM ORTO', 'ORTO'),
-(3, 'JONQUIM ORTO2', 'ORTO2'),
-(4, 'JONQUIM ORTO3', 'ORTO3'),
-(5, 'JONQUIM ORTO4', 'ORTO4'),
-(6, 'JONQUIM ORTO5', 'ORTO5');
+INSERT INTO `medicos` (`id`, `nome`, `localTrabalho`, `email`, `pass`) VALUES
+(2, 'JONQUIM ORTO', 'ORTO', '', ''),
+(3, 'JONQUIM ORTO2', 'ORTO2', '', ''),
+(4, 'JONQUIM ORTO3', 'ORTO3', '', ''),
+(5, 'JONQUIM ORTO4', 'ORTO4', '', ''),
+(6, 'JONQUIM ORTO5', 'ORTO5', '', ''),
+(8, 'qwer', 'desconhecido', 'qwer@qwer.com', '$2y$10$qdct57OItMTqkPxyy.TTq.zRDczoh20MOJekIpTm0NmhNSY.XOwjm');
 
 --
 -- Índices para tabelas despejadas
@@ -62,7 +65,7 @@ ALTER TABLE `medicos`
 -- AUTO_INCREMENT de tabela `medicos`
 --
 ALTER TABLE `medicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
