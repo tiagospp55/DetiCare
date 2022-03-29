@@ -91,27 +91,8 @@
       <?php
       if (isset($_POST['confpass'])) {
         if (isset($_POST['email']) ) {
-<<<<<<< HEAD:register_t.php
           if (isset($_POST['terms'])) {
             $query = "SELECT id FROM medicos where email=?";
-=======
-          $query = "SELECT id FROM users where email=?";
-          $statement = $conn->prepare($query);
-          $statement->bind_param('s', $_POST['email']);
-          $statement->execute();
-          $statement->bind_result($id);
-          if ($statement->fetch()) {
-            echo '<h>O Email que colocou ja esta registado</h2>';
-            $statement->close();
-          } else {
-            $statement->close();
-            $seed = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZ' . '0123456789'); // and any other characters
-            shuffle($seed); // probably optional since array_is randomized; this may be redundant
-            $rand = '';
-            foreach (array_rand($seed, 5) as $k) $rand .= $seed[$k];
-            $p = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-            $query = "INSERT INTO users(email,nome,password,ConfCodeEmail,emailConf,Disponivel,idMedico) VALUES(?,?,?,?,?,'SIM',?)";
->>>>>>> 974f74f4d5be34b3dfa44a66a96bf3af7dcf6c02:Frontend/register_t.php
             $statement = $conn->prepare($query);
             $statement->bind_param('s', $_POST['email']);
             $statement->execute();
@@ -119,10 +100,6 @@
             if ($statement->fetch()) {
               echo '<h2 style="font-family:roboto;">O Email que colocou ja esta registado</h2>';
               $statement->close();
-<<<<<<< HEAD:register_t.php
-=======
-              echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
->>>>>>> 974f74f4d5be34b3dfa44a66a96bf3af7dcf6c02:Frontend/register_t.php
             } else {
               $statement->close();
               $seed = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZ' . '0123456789'); // and any other characters
@@ -136,7 +113,7 @@
               $statement->bind_param('sss', $_POST['name'],$_POST['email'], $p);
               if ($statement->execute() && $statement->affected_rows > 0) {
                 $statement->close();
-                echo "<script type='text/javascript'>window.location.href = 'csv_upload.php';</script>";
+                echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
               } else {
                 echo "<h4>Ocorreu um erro na insereção</h4>";
               }
@@ -163,7 +140,7 @@
               $statement->bind_param('ssssss', $_POST['email'], $_POST['name'], $p, $rand, $ya,$_POST['med']);
               if ($statement->execute() && $statement->affected_rows > 0) {
                 $statement->close();
-                echo "<script type='text/javascript'>window.location.href = 'csv_upload.php';</script>";
+                echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
               } else {
                 echo "<h4>Ocorreu um erro na insereção</h4>";
               }

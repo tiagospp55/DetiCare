@@ -18,7 +18,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="Frontend/index.php"><b>Deti</b>Care</a>
+    <b>Deti</b>Care</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
