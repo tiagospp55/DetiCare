@@ -16,7 +16,7 @@
 </section>
 
 <!-- Main content -->
-<section class="content" onload="make_graph_DIA()">
+<section class="content" ">
 
   <!-- Default box -->
   <div class="card card-solid">
@@ -26,20 +26,14 @@
   </div>
 </section>
 
-<section class="content" onload="make_graph_SYS()">
-
-  <!-- Default box -->
-  <div class="card card-solid">
-    <div class="card-body pb-0">
-        <canvas id="line-chart" width="800" height="300"></canvas>
-    </div>
-  </div>
-</section>
+<script
+  type = "module" src = "graph.js">
+  </script>
 
 <!--<script type="module" src="graph.js"></script>-->
 <!-- Radio Buttons -->
 
-              <div class="card-body table-responsive pad">
+              <div class="card-body table-responsive pad" style="position: absolute;left: 50%;">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                   <label class="btn btn-secondary active">
                     <input type="radio" name="options" id="option_1" autocomplete="off" checked> 1h
@@ -60,7 +54,7 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 <!--
 <!DOCTYPE html>
 <html>

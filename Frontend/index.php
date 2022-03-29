@@ -246,10 +246,7 @@
         document.getElementById(menu_id).classList.add('active');
 
         if (page == 'graph.php') {
-          make_graph_SYS();
-          
-          make_graph_DIA();
-          
+          make_graph_Hearth_Rate();
         }
 
       });
