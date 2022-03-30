@@ -1,7 +1,7 @@
 let httpRequest = new XMLHttpRequest();
 // aqui têm de passar o nome correto do ficheiro json
 
-httpRequest.open("GET", "teste_blood_presure_processado.json", true);
+httpRequest.open("GET", "../teste_blood_presure_processado.json", true);
 httpRequest.send();
 httpRequest.addEventListener("readystatechange", function() {
     if (this.readyState === this.DONE) {
@@ -67,7 +67,7 @@ httpRequest.addEventListener("readystatechange", function() {
 			data:data,
 			options: {
 				scales: {
-					x: {
+					xAxes: {
 						stacked: true,
 					},
     		}

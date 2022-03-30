@@ -15,8 +15,9 @@
   </div><!-- /.container-fluid -->
 </section>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 <!-- Main content -->
-<section class="content" ">
+<section class="content" >
 
   <!-- Default box -->
   <div class="card card-solid">
@@ -26,11 +27,9 @@
   </div>
 </section>
 
-<script
-  type = "module" src = "graph.js">
-  </script>
 
-<!--<script type="module" src="graph.js"></script>-->
+
+<script type="module" src="graph.js"></script>
 <!-- Radio Buttons -->
 
               <div class="card-body table-responsive pad" style="position: absolute;left: 50%;">
@@ -54,7 +53,6 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 <!--
 <!DOCTYPE html>
 <html>

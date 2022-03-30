@@ -1,4 +1,4 @@
-function make_graph_blood_pressure() {
+
 	let httpRequest = new XMLHttpRequest();
 
 	httpRequest.open("GET", "../teste_blood_presure_processado.json", true);
@@ -74,4 +74,3 @@ function make_graph_blood_pressure() {
 			const myChart = new Chart(ctx,config);
 		}
 	});
-}
