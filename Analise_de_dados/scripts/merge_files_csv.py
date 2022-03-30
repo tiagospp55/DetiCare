@@ -15,11 +15,12 @@ tipo_de_dados=sys.argv[3]
 destino=sys.argv[4]
 
 
-files=[]
 string_diretorio=diretorio_inicial+id_cliente+'_'+tipo_de_dados+'*.csv'
-print(string_diretorio)
+print("abrindo os ficheiros em :",string_diretorio)
+
+files=[]
 for filename in glob.glob(string_diretorio):
-	print(string_diretorio)
+	print("a ler o ficheiro ",filename)
 	files.append(filename)
 
 df=pd.read_csv(files[0])
@@ -30,11 +31,10 @@ for name in files[1:]:
 	df = pd.concat([temp, df], axis=0)
 
 #print(length(df))
-
 df=df.drop_duplicates()
-
 #print(length(df))
 
 nome_final=destino+id_cliente+'_'+tipo_de_dados+'_merged.csv'
 
 df.to_csv(nome_final,index=False)
+print("wrote to:",nome_final)
