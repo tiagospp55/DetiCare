@@ -81,7 +81,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="LogOut.php" role="button">
+        <a class="nav-link" href="LogOut.php" role="button">
         <i class="fa-solid fa-right-from-bracket"></i>
         </a>
       </li>
