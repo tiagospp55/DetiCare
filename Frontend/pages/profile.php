@@ -2,9 +2,13 @@
   session_start();
   $_SESSION["last_page"] = "profile.php";
 ?>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+  $( "#target" ).click(function() {
+  alert( "Handler for .click() called." );
+});
 
-
-
+</script>
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
@@ -14,16 +18,17 @@
               <div class="card-body box-profile">
                 
 
-                <h3 class="profile-username text-center">Nome</h3>
+                <h3 class="profile-username text-center"><?php echo $_SESSION["nome"]; ?></h3>
 
-                
+                <p></p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Peso</b> <a class="float-right">1,322</a>
+                    <b>Peso</b> <a class="float-right" id="acao">888</a>
                   </li>
+
                   <li class="list-group-item">
-                    <b>Altura</b> <a class="float-right">543</a>
+                    <b>Altura</b> <a class="float-right" id="acao">543</a>
                   </li>
                   <li class="list-group-item">
                     <b>Idade</b> <a class="float-right">13,287</a>

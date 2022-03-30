@@ -65,7 +65,7 @@
 				data:data,
 				options: {
 					scales: {
-						x: {
+						xAxes: {
 							stacked: true,
 						},
 					}
