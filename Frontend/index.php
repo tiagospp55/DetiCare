@@ -5,10 +5,10 @@
   if (isset($_SESSION["last_page"])) {
     echo "<script>alert('" . $_SESSION["last_page"] . "')</script>";
   }
-  */
+  
   if ($_SESSION["sessao"]=="") {
     header("location: login_t.php");
-  }
+  }*/
   if (!isset($_SESSION["last_page"])) {
     $_SESSION["last_page"] = 'profile.php';
   }
