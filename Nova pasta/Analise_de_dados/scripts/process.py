@@ -37,5 +37,5 @@ new_df['SYS_mean']=SYS_mean
 new_df['SYS_max']=SYS_max
 new_df['SYS_min']=SYS_min
 
-new_df.to_csv(sys.argv[1][:-4]+'.csv',index=False)
+new_df.to_csv(sys.argv[1][:-4]+'_calculado.csv',index=False)
 print(new_df)
