@@ -119,7 +119,7 @@ httpRequest.addEventListener("readystatechange", function()
                                 {
                                     barThickness:3,
                                     data: Motion,
-                                    label: "SpO2",
+                                    label: "Motion",
                                     backgroundColor: '#0a0a0a',
                                     fill: false
                                 },
