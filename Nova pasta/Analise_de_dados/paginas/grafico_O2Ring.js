@@ -113,14 +113,13 @@ httpRequest.addEventListener("readystatechange", function()
                 type: 'bar',
                 data:
                     {
-                        labels:labels,
+                        labels:array,
                         datasets:
                             [
                                 {
-                                    barThickness:3,
-                                    data: Motion,
-                                    label: "Motion",
-                                    backgroundColor: '#0a0a0a',
+                                    data: hist,
+                                    label: "SpO2",
+                                    backgroundColor: '#13c3d9',
                                     fill: false
                                 },
                             ]
