@@ -8,10 +8,11 @@
 
 <?php
 
-	$conn=new mysqli('localhost','root','','peebd');
+	$conn=new mysqli('deticare.ddns.net','root','','peebd');
 
 	if($conn->connect_error){
-		die("ERROR: (".$conn->errno.")->".$conn->error);
+    echo "<script>console.log('".$conn->error."');</script>";
+		echo "ERROR: (".$conn->errno.")->".$conn->error;
 	}else{
 		echo "<script>console.log('Connected');</script>";
 	}
