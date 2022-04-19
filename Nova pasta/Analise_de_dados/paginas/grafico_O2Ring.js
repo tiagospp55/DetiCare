@@ -137,11 +137,13 @@ httpRequest.addEventListener("readystatechange", function()
 
         console.log(array);
         console.log(hist);
+        var array_sorteado=array;
+        var hist_sorteado=hist;
         	for(let i = 0; i < hist.length; i++){
 		        for(let j = 0; j < hist.length - i - 1; j++){
 		            if(hist[j + 1] > hist[j]){
-		                [hist[j + 1],hist[j]] = [hist[j],hist[j + 1]];
-		                [array[j + 1],array[j]] = [array[j],array[j + 1]];
+		                [hist_sorteado[j + 1],hist_sorteado[j]] = [hist_sorteado[j],hist_sorteado[j + 1]];
+		                [array_sorteado[j + 1],array_sorteado[j]] = [array_sorteado[j],array_sorteado[j + 1]];
 		            }
 		        }
 		    };
@@ -164,12 +166,12 @@ httpRequest.addEventListener("readystatechange", function()
             {
                 data:
                     {
-                        labels:array,
+                        labels:array_sorteado,
                         datasets:
                             [
                                 {
                                     type:'bar',
-                                    data: hist,
+                                    data: hist_sorteado,
                                     label: "SpO2",
                                     yAxisID: 'y',
                                     backgroundColor: '#25dec2',
