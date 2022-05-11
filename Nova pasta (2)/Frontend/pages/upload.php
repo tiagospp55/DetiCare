@@ -2,20 +2,26 @@
 <?php
   session_start();
   $_SESSION["last_page"] = "upload.php";
+  include "../BD.php";
 ?>
 
 
 
 <?php
 
-	$conn=new mysqli('deticare.ddns.net','root','','peebd');
+//<<<<<<< HEAD:Frontend/pages/upload.php
+	//$conn=new mysqli('localhost','root','','peebd');
+  //$conn=new mysqli('mysql-hosting.ua.pt','deti-care-dbo','RWwOukG293Zv1Kiz','deti-care');
+//=======
+	//$conn=new mysqli('deticare.ddns.net','root','','peebd');
 
-	if($conn->connect_error){
-    echo "<script>console.log('".$conn->error."');</script>";
-		echo "ERROR: (".$conn->errno.")->".$conn->error;
-	}else{
-		echo "<script>console.log('Connected');</script>";
-	}
+//>>>>>>> 74c94ac7c7ef7b5bd876fc68cd7e5b7f4447d77a:Nova pasta (2)/Frontend/pages/upload.php
+	//if($conn->connect_error){
+    //echo "<script>console.log('".$conn->error."');</script>";
+		//echo "ERROR: (".$conn->errno.")->".$conn->error;
+	//}else{
+		//echo "<script>console.log('Connected');</script>";
+	//}
 
 ?>
  
