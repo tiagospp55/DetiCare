@@ -115,7 +115,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a onclick="go_to('profile2.php')" class="nav-link " id="profile">
+            <a onclick="go_to('profile.php')" class="nav-link " id="profile">
               <i class="fa-solid fa-user nav-icon"></i>
               <p>
                 Profile

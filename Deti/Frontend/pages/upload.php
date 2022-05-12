@@ -57,7 +57,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="../../Uploads/action.php" method="POST" enctype="multipart/form-data">
+              <form action="../Uploads/action.php" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                   <div class="form-group">
                   <input type="text" id="form_id" name="form_id" value="1" hidden>
