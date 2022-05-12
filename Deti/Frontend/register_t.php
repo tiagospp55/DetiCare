@@ -61,6 +61,14 @@
           </div>
         </div>
         <div class="input-group mb-3">
+          <input type="date" id="confpass" name="confpass" class="form-control">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
           <select name="med" id="med" style="width:88%;">
             <option value="-1">None</option>
             <?php include 'RegMedicos.php';?>

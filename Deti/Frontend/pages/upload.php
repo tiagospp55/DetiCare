@@ -124,7 +124,7 @@
                     <span class="input-group-text">Birthday</span>
                    </div>
                 
-                  <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+                  <input type="date" class="form-control" placeholder="dd/mm/yyyy">
                   <span class="input-group-append">
                   <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
                   </span>
@@ -140,6 +140,26 @@
                   <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
                   </span>
                 </div> 
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Address</span>
+                   </div>
+                
+                  <input type="text" class="form-control" placeholder="Street, Number, Postal Code">
+                  <span class="input-group-append">
+                  <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
+                  </span>
+                </div> 
+
+                <div class="form-group">
+                  <label>Doctor</label>
+                  <select class="custom-select rounded-0" id="exampleSelectRounded0">
+                    <option>Value 1</option>
+                    <option>Value 2</option>
+                    <option>Value 3</option>
+                  </select>
+                </div>
 
 
 
