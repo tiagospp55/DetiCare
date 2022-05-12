@@ -114,7 +114,40 @@
             <!-- /.card -->
 
             <!-- Input addon -->
-      
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Personal Data</h3>
+              </div>
+              <div class="card-body">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Birthday</span>
+                   </div>
+                
+                  <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+                  <span class="input-group-append">
+                  <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
+                  </span>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Phone Number</span>
+                   </div>
+                
+                  <input type="text" class="form-control" placeholder="xxx xxx xxx">
+                  <span class="input-group-append">
+                  <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
+                  </span>
+                </div> 
+
+
+
+         
+                <!-- /input-group -->
+              </div>
+              <!-- /.card-body -->
+            </div>
             <!-- /.card -->
             <!-- Horizontal Form -->
             <!-- /.card -->
@@ -136,7 +169,7 @@
                   <div class="form-group">
                   <input type="text" id="form_id" name="form_id" value="2" hidden>
                     
-                  <label for="exampleInputFile">File input</label>
+                  
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="filesu">
@@ -183,7 +216,40 @@
 
 
             <!-- general form elements disabled -->
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Metrics</h3>
+              </div>
+              <div class="card-body">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Height</span>
+                   </div>
+                
+                  <input type="text" class="form-control" placeholder="Cm">
+                  <span class="input-group-append">
+                  <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
+                  </span>
+                </div>
 
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Weight</span>
+                   </div>
+                
+                  <input type="text" class="form-control" placeholder="Kg">
+                  <span class="input-group-append">
+                  <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
+                  </span>
+                </div> 
+
+
+
+         
+                <!-- /input-group -->
+              </div>
+              <!-- /.card-body -->
+            </div>
             <!-- /.card -->
           </div>
           <!--/.col (right) -->
