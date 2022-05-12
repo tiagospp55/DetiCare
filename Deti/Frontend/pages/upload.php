@@ -8,7 +8,7 @@
 
 
 <?php
-
+//CONA
 //<<<<<<< HEAD:Frontend/pages/upload.php
 	//$conn=new mysqli('localhost','root','','peebd');
   //$conn=new mysqli('mysql-hosting.ua.pt','deti-care-dbo','RWwOukG293Zv1Kiz','deti-care');
