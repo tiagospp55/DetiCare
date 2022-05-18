@@ -112,62 +112,65 @@
             <!-- general form elements -->
            
             <!-- /.card -->
-
+            
             <!-- Input addon -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Personal Data</h3>
-              </div>
-              <div class="card-body">
-              <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Birthday</span>
-                   </div>
-                
-                  <input type="date" class="form-control" placeholder="dd/mm/yyyy">
-                  <span class="input-group-append">
-                  <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
-                  </span>
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Personal Data</h3>
                 </div>
-
+                <div class="card-body">
+                  <form method="post" action="#" id="regista1">
                 <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Phone Number</span>
-                   </div>
-                
-                  <input type="text" class="form-control" placeholder="xxx xxx xxx">
-                  <span class="input-group-append">
-                  <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
-                  </span>
-                </div> 
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Birthday</span>
+                     </div>
+                  
+                    <input type="date" name="dn" value="<?php echo $_SESSION['DN'] ?>" class="form-control" placeholder="dd/mm/yyyy">
+                    <span class="input-group-append">
+                    </span>
+                  </div>
 
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Address</span>
-                   </div>
-                
-                  <input type="text" class="form-control" placeholder="Street, Number, Postal Code">
-                  <span class="input-group-append">
-                  <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
-                  </span>
-                </div> 
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Phone Number</span>
+                     </div>
+                  
+                    <input type="text" name="nmr" class="form-control" value="<?php echo $_SESSION['nmr'] ?>" placeholder="xxx xxx xxx">
+                    <span class="input-group-append">
+                    </span>
+                  </div> 
 
-                <div class="form-group">
-                  <label>Doctor</label>
-                  <select class="custom-select rounded-0" id="exampleSelectRounded0">
-                    <option>Value 1</option>
-                    <option>Value 2</option>
-                    <option>Value 3</option>
-                  </select>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Address</span>
+                     </div>
+                  
+                    <input type="text" name="lc" class="form-control" value="<?php echo $_SESSION['loc']?>" placeholder="Street, Number, Postal Code">
+                    <span class="input-group-append">
+                    </span>
+                  </div> 
+
+                  <div class="form-group">
+                    <label>Doctor</label>
+                    <select class="custom-select rounded-0" id="exampleSelectRounded0">
+                      <option value="<?php echo $_SESSION["medico"]?>">Your Medic</option>
+                      <?php include '../RegMedicos.php';?>
+                    </select>
+                  </div>
+
+
+           
+                  <!-- /input-group -->
                 </div>
-
-
-
-         
-                <!-- /input-group -->
+              </form>
+                <div class="card-footer">
+                  <button onclick="verify1()" class="btn btn-primary" name="alt" value="1" style="background-color:#17a2b8;" name="uploadPD">Submit</button>
+                </div>
+                <!-- /.card-body -->
               </div>
-              <!-- /.card-body -->
-            </div>
+
+
+            
             <!-- /.card -->
             <!-- Horizontal Form -->
             <!-- /.card -->
@@ -199,7 +202,6 @@
                   </div>
                 </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary" name="upload">Submit</button>
                 </div>
@@ -236,42 +238,47 @@
 
 
             <!-- general form elements disabled -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Metrics</h3>
-              </div>
-              <div class="card-body">
-              <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Height</span>
-                   </div>
-                
-                  <input type="text" class="form-control" placeholder="Cm">
-                  <span class="input-group-append">
-                  <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
-                  </span>
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Metrics</h3>
                 </div>
 
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Weight</span>
-                   </div>
-                
-                  <input type="text" class="form-control" placeholder="Kg">
-                  <span class="input-group-append">
-                  <button type="button" class="btn btn-info btn-flat"><i class="fas fa-check"></i></button>
-                  </span>
-                </div> 
+                <form method="post">
+                <div class="card-body">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Height</span>
+                     </div>
+                  
+                    <input type="text" name="he" class="form-control" value="<?php echo $_SESSION["altura"]?>" placeholder="Cm">
+                    <span class="input-group-append">
+                    </span>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Weight</span>
+                     </div>
+                    <input name="peso" type="text" class="form-control" value="<?php echo $_SESSION["peso"]?>" placeholder="Kg">
+                    <span class="input-group-append">
+                    </span>
+                  </div> 
 
 
 
-         
-                <!-- /input-group -->
+           
+                  <!-- /input-group -->
+                </div>
+                <div class="card-footer">
+                  <input type="submit" class="btn btn-primary" style="background-color:#17a2b8;" name="uploadPD">
+                </div>
+                </form>
+              
+                <!-- /.card-body -->
               </div>
-              <!-- /.card-body -->
+              <!-- /.card -->
             </div>
-            <!-- /.card -->
-          </div>
+          
           <!--/.col (right) -->
         </div>
         <!-- /.row -->

@@ -34,7 +34,7 @@
                     <b>Idade</b> <a class="float-right"><?php echo '<p class="text-muted">'.$_SESSION["idade"].' </p>'?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Data de Nascimento</b> <a class="float-right"><?php echo '<p class="text-muted">'.$_SESSION["DN"].' </p>'?></a>
+                    <b style="font-size:80%">Data de Nascimento</b> <a class="float-right"><?php echo '<p class="text-muted">'.$_SESSION["DN"].' </p>'?></a>
                   </li>
 </ul>
               </div>
@@ -128,3 +128,13 @@
 
         <!-- /.row -->
       </div><!-- /.container-fluid -->
+
+      <?php
+  
+  if (isset($_POST['peso'])) {
+    $peso = $_POST['peso'];
+    echo $peso;
+    // code...
+  } else echo "1";
+  
+?>
