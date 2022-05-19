@@ -99,7 +99,7 @@
       
       
       <?php
-      
+
       if (isset($_POST['confpass'])) {
         if (isset($_POST['email']) ) {
           if (isset($_POST['terms'])) {
@@ -146,10 +146,15 @@
               $rand = '';
               foreach (array_rand($seed, 5) as $k) $rand .= $seed[$k];
               $p = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-              $query = "INSERT INTO users(email,nome,password,ConfCodeEmail,emailConf,Disponivel,idMedico,DataNascimento) VALUES(?,?,?,?,?,'SIM',?,?)";
+              $query = "INSERT INTO users(email,nome,password,ConfCodeEmail,emailConf,Disponivel,idMedico,idade,DataNascimento) VALUES(?,?,?,?,?,'SIM',?,?,?)";
               $statement = $conn->prepare($query);
               $ya = 'N';
-              $statement->bind_param('sssssss', $_POST['email'], $_POST['name'], $p, $rand, $ya,$_POST['med'],$_POST['dn']);
+              $idd2=date("Y", strtotime($_POST['dn']));
+              $idd= date("Y") - $idd2;
+              if ((date("M")>date("M", strtotime($_POST['dn']))) || (date("M")==date("M", strtotime($_POST['dn']) && date("D")>=date("M", strtotime($_POST['dn']))))) {
+                $idd = $idd - 1;
+              }
+              $statement->bind_param('ssssssss', $_POST['email'], $_POST['name'], $p, $rand, $ya,$_POST['med'],$idd,$_POST['dn']);
               if ($statement->execute() && $statement->affected_rows > 0) {
                 $statement->close();
 
@@ -226,7 +231,6 @@
     <!-- /.form-box -->
   </div><!-- /.card -->
 </div>
-
 <!-- /.register-box -->
 
 <!-- jQuery -->

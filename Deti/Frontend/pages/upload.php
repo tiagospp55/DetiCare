@@ -118,17 +118,9 @@
                 <div class="card-header">
                   <h3 class="card-title">Personal Data</h3>
                 </div>
-                <div class="card-body">
-                  <form method="post" action="#" id="regista1">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">Birthday</span>
-                     </div>
-                  
-                    <input type="date" name="dn" value="<?php echo $_SESSION['DN'] ?>" class="form-control" placeholder="dd/mm/yyyy">
-                    <span class="input-group-append">
-                    </span>
-                  </div>
+                
+                <form method="post" action="personalData.php">
+                  <div class="card-body">
 
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -152,7 +144,7 @@
 
                   <div class="form-group">
                     <label>Doctor</label>
-                    <select class="custom-select rounded-0" id="exampleSelectRounded0">
+                    <select name="med" class="custom-select rounded-0" id="exampleSelectRounded0">
                       <option value="<?php echo $_SESSION["medico"]?>">Your Medic</option>
                       <?php include '../RegMedicos.php';?>
                     </select>
@@ -162,10 +154,10 @@
            
                   <!-- /input-group -->
                 </div>
-              </form>
                 <div class="card-footer">
-                  <button onclick="verify1()" class="btn btn-primary" name="alt" value="1" style="background-color:#17a2b8;" name="uploadPD">Submit</button>
+                  <input type="submit" class="btn btn-primary" style="background-color:#17a2b8;" name="uploadPD">
                 </div>
+              </form>
                 <!-- /.card-body -->
               </div>
 
@@ -243,7 +235,7 @@
                   <h3 class="card-title">Metrics</h3>
                 </div>
 
-                <form method="post">
+                <form method="post" action="heAndWe.php">
                 <div class="card-body">
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -263,10 +255,6 @@
                     <span class="input-group-append">
                     </span>
                   </div> 
-
-
-
-           
                   <!-- /input-group -->
                 </div>
                 <div class="card-footer">
@@ -287,6 +275,7 @@
     <!-- /.content -->
 
 <!-- ./wrapper -->
+
 
 <?php
   echo "<script>bsCustomFileInput.init();alert('hihihihih')</script>";
