@@ -2,8 +2,10 @@ import sys
 import pandas as pd
 import csv
 import json
-  
-file_name=sys.argv[1]
+   ## Exemplo utilização
+		# ./xlsx_csv_to_json.py "nome do ficheiro"
+   ## 
+file_name=sys.argv[1]   # Meter aqui a passar o id da pelo php
 
 file_csv=0
 try:
@@ -19,7 +21,7 @@ def csv_to_json(csvFilePath, jsonFilePath):
     data = {}
     with open(csvFilePath, encoding='utf-8') as csvf:
         csvReader = csv.DictReader(csvf)
-        key=0;
+        key=0
         for rows in csvReader:
             data[key] = rows
             key=key+1
