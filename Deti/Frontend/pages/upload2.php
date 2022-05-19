@@ -35,7 +35,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Uploads</li>
+              <li class="breadcrumb-item active">General Form</li>
             </ol>
           </div>
         </div>
@@ -51,37 +51,11 @@
           <!-- left column -->
           <div class="col-md-6">
             <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Hearth Rate</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form action="../Uploads/action.php" method="POST" enctype="multipart/form-data">
-                <div class="card-body">
-                  <div class="form-group">
-                  <input type="text" id="form_id" name="form_id" value="1" hidden>
-                    
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="filesu">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                   
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary" name="upload">Submit</button>
-                </div>
-              </form>
-              
-            </div>
+            
 
             
-  
+            <!-- /.card -->
+         
             <!-- general form elements -->
            
             <!-- /.card -->
@@ -154,61 +128,7 @@
 
           <div class="col-md-6">
             <!-- Form Element sizes -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form action = "../Uploads/action.php" method="POST" enctype="multipart/form-data">
-                <div class="card-body">
-                  <div class="form-group">
-                  <input type="text" id="form_id" name="form_id" value="2" hidden>
-                    
-                  
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="filesu">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary" name="upload">Submit</button>
-                </div>
-              </form>
-            </div>
-
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form action = "../Uploads/action.php" method="POST" enctype="multipart/form-data">
-                <div class="card-body">
-                  <div class="form-group">
-                  <input type="text" id="form_id" name="form_id" value="4" hidden>
-                    
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="filesu">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                   
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary" name="upload">Submit</button>
-                </div>
-              </form>
-            </div>
-
+          
 
             <!-- general form elements disabled -->
               <div class="card card-info">
@@ -255,8 +175,8 @@
           <!--/.col (right) -->
         </div>
         <!-- /.row -->
-        <button onclick="go_to('upload2.php')" class="btn btn-primary" name="alt" style="background-color:#17a2b8;">Submit</button>
       </div><!-- /.container-fluid -->
+      
     </section>
     <!-- /.content -->
 

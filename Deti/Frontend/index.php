@@ -215,9 +215,7 @@
 <script src="../AdminLTE/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="../AdminLTE/plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
 <script src="../AdminLTE/plugins/moment/moment.min.js"></script>
-<script src="../AdminLTE/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="../AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
@@ -228,6 +226,7 @@
 <script src="../AdminLTE/dist/js/adminlte.js"></script>
 <!-- bs-custom-file-input -->
 <script src="../AdminLTE/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
 
 <!-- Page specific script -->
 

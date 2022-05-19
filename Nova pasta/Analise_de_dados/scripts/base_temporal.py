@@ -2,27 +2,22 @@ import datetime
 import pandas as pd
 import sys
 
-#file_name=sys.argv[1]
-file_name="../BloodPressure_202108-202201.csv"
+# example
+	# python3 ./base_temporal.py nome_ficheiro delta
+	# (delta= numero de dias a ver, por exemplo: uma semana = 7)
 
+file_name=sys.argv[1]
+#file_name="../BloodPressure_202108-202201.csv"
 
 #### get arg date
-#arg=sys.argv[2]
-#arg_date=datetime.date.today()
-
-arg="2021-09-29"
-arg_year=int(arg[0:4])
-arg_month=int(arg[5:7])
-arg_day=int(arg[8:10])
-arg_date=datetime.date(arg_year,arg_month,arg_day)
-print(arg_date)
+arg_date=datetime.date.today()
 
 df=pd.read_csv(file_name)
 
 dates=list(df['Measurement Date'])
 
-#delta=sys.argv[3]
-delta=14
+delta=sys.argv[3]
+#delta=14
 month_ago =  arg_date - datetime.timedelta(days=delta)
 
 new_dates=[]
