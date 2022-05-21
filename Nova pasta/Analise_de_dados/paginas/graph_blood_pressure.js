@@ -1,7 +1,7 @@
 
 	let httpRequest = new XMLHttpRequest();
 
-	httpRequest.open("GET", "../teste_blood_presure_processado.json", true);
+	httpRequest.open("GET", "../teste/file_para_usar_no_graph.json", true);
 	httpRequest.send();
 	httpRequest.addEventListener("readystatechange", function() {
 			if (this.readyState === this.DONE) {
@@ -14,7 +14,7 @@
 					let sys_max= []
 					let sys_min= []
 					for (let key of Object.keys(json_file)) {
-						labels.push(json_file[key]["day"].substring(0,11))
+						labels.push(json_file[key]["Measurement Date"].substring(0,11))
 						pulse.push(json_file[key]["Pulse_mean"])
 						dia_min.push(json_file[key]["DIA_min"])
 						dia_max.push(json_file[key]["DIA_max"])
