@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="date" id="confpass" name="confpass" class="form-control">
+          <input type="date" id="dn" name="dn" class="form-control" value="">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -90,13 +90,16 @@
             </div>
           </div>
           <!-- /.col -->
+        </div>
+      </form>
           <div class="col-4">
             <button onclick="verify()" class="btn btn-primary btn-block">Register</button>
           </div>
           <!-- /.col -->
-        </div>
-      </form>
+      
+      
       <?php
+
       if (isset($_POST['confpass'])) {
         if (isset($_POST['email']) ) {
           if (isset($_POST['terms'])) {
@@ -113,6 +116,7 @@
               $seed = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZ' . '0123456789'); // and any other characters
               shuffle($seed); // probably optional since array_is randomized; this may be redundant
               $rand = '';
+              echo $_POST['dn'];
               foreach (array_rand($seed, 5) as $k) $rand .= $seed[$k];
               $p = password_hash($_POST['pass'], PASSWORD_DEFAULT);
               $query = "INSERT INTO medicos(nome,localTrabalho,email,pass) VALUES(?,'desconhecido',?,?)";
@@ -142,13 +146,35 @@
               $rand = '';
               foreach (array_rand($seed, 5) as $k) $rand .= $seed[$k];
               $p = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-              $query = "INSERT INTO users(email,nome,password,ConfCodeEmail,emailConf,Disponivel,idMedico) VALUES(?,?,?,?,?,'SIM',?)";
+              $query = "INSERT INTO users(email,nome,password,ConfCodeEmail,emailConf,Disponivel,idMedico,idade,DataNascimento) VALUES(?,?,?,?,?,'SIM',?,?,?)";
               $statement = $conn->prepare($query);
               $ya = 'N';
-              $statement->bind_param('ssssss', $_POST['email'], $_POST['name'], $p, $rand, $ya,$_POST['med']);
+              $idd2=date("Y", strtotime($_POST['dn']));
+              $idd= date("Y") - $idd2;
+              if ((date("M")>date("M", strtotime($_POST['dn']))) || (date("M")==date("M", strtotime($_POST['dn']) && date("D")>=date("M", strtotime($_POST['dn']))))) {
+                $idd = $idd - 1;
+              }
+              $statement->bind_param('ssssssss', $_POST['email'], $_POST['name'], $p, $rand, $ya,$_POST['med'],$idd,$_POST['dn']);
               if ($statement->execute() && $statement->affected_rows > 0) {
                 $statement->close();
-                echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
+
+                $query = "SELECT id FROM users where email=?";
+                $statement = $conn->prepare($query);
+                $statement->bind_param('s', $_POST['email']);
+                $statement->execute();
+                $statement->bind_result($id2);
+                $statement->fetch();
+                $statement->close();
+                echo $id2;
+                $query = "CREATE TABLE dados".$id2."(peso VARCHAR(255) NOT NULL, altura VARCHAR(255) NOT NULL, dataInser DATE, IMC VARCHAR(255) NOT NULL)";
+                $statement = $conn->prepare($query);
+                if ($statement->execute() && $statement->affected_rows > 0) {
+                }else{
+                  echo "ERRO";
+                }
+
+
+                echo "<script type='text/javascript'>window.location.href = 'login_t.php';</script>";
               } else {
                 echo "<h4>Ocorreu um erro na insereção</h4>";
               }
@@ -167,8 +193,11 @@
                 var b = document.getElementById('name').value;
                 var x = document.getElementById('pass').value;
                 var x2 = document.getElementById('confpass').value;
+                var dn = document.getElementById('dn').value;
+                var yauas = new Date(dn);
+                var yauas2 = yauas.getFullYear();
                 var d = b.length;
-                if (x != '' && x2 != '' && a != '' && b != '') {
+                if (x != '' && x2 != '' && a != '' && b != '' && !!yauas.valueOf()) {
                   if (document.forms[0].email.value == "" || document.forms[0].email.value.indexOf('@') == -1 || document.forms[0].email.value.indexOf('.') == -1) {
                     err = "Por favor, insira um E-MAIL válido!";
                   } else {
@@ -202,7 +231,6 @@
     <!-- /.form-box -->
   </div><!-- /.card -->
 </div>
-
 <!-- /.register-box -->
 
 <!-- jQuery -->
