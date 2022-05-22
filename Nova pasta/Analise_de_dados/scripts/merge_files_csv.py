@@ -8,14 +8,14 @@ import glob
 
 #### exemplo de utilização ####
 
+tipo_de_dados=sys.argv[1]
+diretorio_inicial=sys.argv[2]
+destino=sys.argv[3]
 
-diretorio_inicial=sys.argv[1]
-id_cliente=sys.argv[2]
-tipo_de_dados=sys.argv[3]
-destino=sys.argv[4]
+diretorio_inicial="./"
+destino="./"
 
-
-string_diretorio=diretorio_inicial+id_cliente+'_'+tipo_de_dados+'*.csv'
+string_diretorio=diretorio_inicial+'_'+tipo_de_dados+'*.csv'
 print("abrindo os ficheiros em :",string_diretorio)
 
 files=[]
@@ -34,7 +34,7 @@ for name in files[1:]:
 df=df.drop_duplicates()
 #print(length(df))
 
-nome_final=destino+id_cliente+'_'+tipo_de_dados+'_merged.csv'
+nome_final=destino+'_'+tipo_de_dados+'_merged.csv'
 
 df.to_csv(nome_final,index=False)
 print("wrote to:",nome_final)
