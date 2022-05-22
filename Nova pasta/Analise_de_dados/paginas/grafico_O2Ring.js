@@ -25,13 +25,20 @@ httpRequest.addEventListener("readystatechange", function()
         var max=Math.max.apply(null,SpO2)
         var dif=max-min;
 
-        let array=[];
+        var array=[];
         var hist=[];
+        var array1=[];
+        var hist1=[];
 
 
         var temp=min;
         for(let k=0; k< dif;k++){
             array[k]=[temp, temp+1];
+            temp++;
+        }
+        var temp=min;
+        for(let k=0; k< dif;k++){
+            array1[k]=[temp, temp+1];
             temp++;
         }
 
@@ -44,6 +51,16 @@ httpRequest.addEventListener("readystatechange", function()
                 }
             }
             hist[k]=count;
+        }
+        var count;
+        for(let k=0; k< dif;k++){
+            count=0;
+            for(let j=0;j<SpO2.length;j++){
+                if(SpO2[j]>=array1[k][0] && SpO2[j]<array1[k][1]){
+                    count++;
+                }
+            }
+            hist1[k]=count;
         }
 
         const ctx = document.getElementById('line-chart');
@@ -113,11 +130,11 @@ httpRequest.addEventListener("readystatechange", function()
                 type: 'bar',
                 data:
                     {
-                        labels:array,
+                        labels:array1,
                         datasets:
                             [
                                 {
-                                    data: hist,
+                                    data: hist1,
                                     label: "SpO2",
                                     backgroundColor: '#13c3d9',
                                     fill: false
@@ -134,9 +151,6 @@ httpRequest.addEventListener("readystatechange", function()
                     }
             });
 
-
-        console.log(array);
-        console.log(hist);
         var array_sorteado=array;
         var hist_sorteado=hist;
         	for(let i = 0; i < hist.length; i++){

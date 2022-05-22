@@ -129,12 +129,3 @@
         <!-- /.row -->
       </div><!-- /.container-fluid -->
 
-      <?php
-  
-  if (isset($_POST['peso'])) {
-    $peso = $_POST['peso'];
-    echo $peso;
-    // code...
-  } else echo "1";
-  
-?>

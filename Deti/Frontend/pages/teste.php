@@ -14,7 +14,7 @@
             <p>peso <input type="text" name="peso" value="<?php echo $_SESSION['peso']; ?>"></p>
             <p>altura <input type="text" name="alt" value="<?php echo $_SESSION['altura']?>"></p>
             <p>idade <input type="text" name="idd" value="<?php echo $_SESSION['idade']?>"></p>
-            <p>dtnasc <input type="text" name="dtn" value="<?php echo $_SESSION['DN']?>"></p>
+            <p>dtnasc <input type="date" name="dtn" value="<?php echo $_SESSION['DN']?>"></p>
             <p>nmr <input type="text" name="nmr" value="<?php echo $_SESSION['nmr']?>"></p>
             <p>loc <input type="text" name="lc" value="<?php echo $_SESSION['loc']?>"></p>
 
