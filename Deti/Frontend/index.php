@@ -150,17 +150,9 @@
           </li>
           <li class="nav-item ">
             <a onclick="go_to('graph3.php')" class="nav-link " id="graph3">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fa-solid fa-weight-scale"></i>
               <p>
-              Outro 1
-              </p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a onclick="go_to('graph4.php')" class="nav-link " id="graph4">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Outro 2
+              IMC
               </p>
             </a>
           </li>

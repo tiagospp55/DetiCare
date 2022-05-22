@@ -156,7 +156,7 @@
             <!-- Form Element sizes -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+                <h3 class="card-title">Oxymeter</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -181,33 +181,7 @@
               </form>
             </div>
 
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form action = "../Uploads/action.php" method="POST" enctype="multipart/form-data">
-                <div class="card-body">
-                  <div class="form-group">
-                  <input type="text" id="form_id" name="form_id" value="4" hidden>
-                    
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile" name="filesu">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                   
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary" name="upload">Submit</button>
-                </div>
-              </form>
-            </div>
+            
 
 
             <!-- general form elements disabled -->
@@ -255,9 +229,8 @@
           <!--/.col (right) -->
         </div>
         <!-- /.row -->
-        <button onclick="go_to('upload2.php')" class="btn btn-primary" name="alt" style="background-color:#17a2b8;">Submit</button>
       </div><!-- /.container-fluid -->
-    </section>
+        </section>
     <!-- /.content -->
 
 <!-- ./wrapper -->
