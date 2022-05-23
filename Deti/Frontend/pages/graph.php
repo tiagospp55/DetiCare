@@ -6,30 +6,30 @@ include("../functions.php");
 ?>
 
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free-6.1.1-web/css/all.min.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="../AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="../AdminLTE/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="../AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="../AdminLTE/plugins/select2/css/select2.min.css">
-  <link rel="stylesheet" href="../AdminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-  <!-- Bootstrap4 Duallistbox -->
-  <link rel="stylesheet" href="../AdminLTE/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
-  <!-- BS Stepper -->
-  <link rel="stylesheet" href="../AdminLTE/plugins/bs-stepper/css/bs-stepper.min.css">
-  <!-- dropzonejs -->
-  <link rel="stylesheet" href="../AdminLTE/plugins/dropzone/min/dropzone.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="../AdminLTE/plugins/daterangepicker/daterangepicker.css">
-  
+<!-- Google Font: Source Sans Pro -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="../AdminLTE/plugins/fontawesome-free-6.1.1-web/css/all.min.css">
+<!-- iCheck for checkboxes and radio inputs -->
+<link rel="stylesheet" href="../AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- Bootstrap Color Picker -->
+<link rel="stylesheet" href="../AdminLTE/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+<!-- Tempusdominus Bootstrap 4 -->
+<link rel="stylesheet" href="../AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+<!-- Select2 -->
+<link rel="stylesheet" href="../AdminLTE/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="../AdminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+<!-- Bootstrap4 Duallistbox -->
+<link rel="stylesheet" href="../AdminLTE/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+<!-- BS Stepper -->
+<link rel="stylesheet" href="../AdminLTE/plugins/bs-stepper/css/bs-stepper.min.css">
+<!-- dropzonejs -->
+<link rel="stylesheet" href="../AdminLTE/plugins/dropzone/min/dropzone.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="../AdminLTE/dist/css/adminlte.min.css">
+<!-- daterange picker -->
+<link rel="stylesheet" href="../AdminLTE/plugins/daterangepicker/daterangepicker.css">
+
 
 <section class="content-header">
   <div class="container-fluid">
@@ -43,7 +43,7 @@ include("../functions.php");
 
 <!-- Main content -->
 <section class="content">
-  
+
   <!-- Default box -->
   <div class="card card-solid">
     <div class="card-body pb-0">
@@ -59,13 +59,25 @@ include("../functions.php");
 
 
 <section class="content">
-  
-  <div class="card card-primary">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-2">
+        <div class="form-group">
+          <label>Begin:</label>
+          <div class="input-group mb-3">
+            <input type="date" id="dn" name="dn" class="form-control" value="">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-calendar"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     
-    <div class="card-body row">
-      <!-- Date -->  
+    <div class="col-md-auto">
       <div class="form-group">
-        <label>Dateeeeeee:</label>
+        <label>End:</label>
         <div class="input-group mb-3">
           <input type="date" id="dn" name="dn" class="form-control" value="">
           <div class="input-group-append">
@@ -76,8 +88,32 @@ include("../functions.php");
         </div>
       </div>
     </div>
-    
-    <!-- /.card-body -->
+    <div class="col col-lg-2">
+      <div class="form-group">
+        <label>Date range button:</label>
+        <i class="far fa-calendar-alt"></i>
+        <select class="form-control select2" style="width: 100%;">
+
+          <option selected="selected">Custom range</option>
+          <option>Last Day</option>
+          <option>Last Week</option>
+          <option>Last Month</option>
+          <option>All</option>
+
+        </select>
+
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+  </div>
+
+  <!-- /.card-body -->
   </div>
 </section>
 
