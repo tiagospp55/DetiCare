@@ -98,7 +98,7 @@ include("../functions.php");
           <option>Last Day</option>
           <option>Last Week</option>
           <option>Last Month</option>
-          <option>All</option>
+          <option>Last Year</option>
 
         </select>
 

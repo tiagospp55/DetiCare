@@ -10,7 +10,7 @@ import glob
 
 id_=sys.argv[1]
 
-diretorio_inicial="./"+id_
+diretorio_inicial="./Files/"+sys.argv[2]+id_
 
 string_diretorio=diretorio_inicial+'*.csv'
 print("abrindo os ficheiros em :",string_diretorio)

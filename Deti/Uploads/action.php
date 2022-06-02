@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$conn=new mysqli('localhost','root','','peebd');
 
 	if($conn->connect_error){
@@ -11,41 +12,53 @@
 	if (isset($_POST["upload"])) { 
 		$file_name = $_FILES["filesu"]["name"];
 		$value = $_POST["form_id"];
-		if($value == 1){
-			$destino ="Files/Type_1/Folder_XLSX/" . uniqid() . $_FILES["filesu"]["name"];
-		}elseif ($value == 2){
-			$destino ="Files/Type_2/Folder_XLSX/" . uniqid() . $_FILES["filesu"]["name"];
-		}elseif ($value == 3){
-			$destino ="Files/Type_3/Folder_XLSX/" . uniqid() . $_FILES["filesu"]["name"];
-		}elseif ($value == 4){
-			$destino ="Files/Type_4/Folder_XLSX/" . uniqid() . $_FILES["filesu"]["name"];
-		}
+		$destino_xlsx = "Files";
+		
 		if($_FILES["filesu"]["type"]=="application/vnd.ms-excel" || $_FILES["filesu"]["type"]=="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"){
-			if(move_uploaded_file($_FILES["filesu"]["tmp_name"], $destino)) {
-				$query="INSERT INTO csv(path, type, date) VALUES(?,?, now())";
+			if(move_uploaded_file($_FILES["filesu"]["tmp_name"], $file_name)) {
+			//	$query="INSERT INTO csv(path, type, date) VALUES(?,?, now())";
 				
-				$statement=$conn->prepare($query);
-				$statement->bind_param('ss',$destino,  $_POST["form_id"] );
+			//	$statement=$conn->prepare($query);
+			//	$statement->bind_param('ss',$destino,  $_POST["form_id"] );
 
-				if ($statement->execute() && $statement->affected_rows>0){
-					echo "O ficheiro foi inserido";
+			//	if ($statement->execute() && $statement->affected_rows>0){
+			//		echo "O ficheiro foi inserido";
 					
-				}else{
-					echo "Ocorreu um erro na Inserecao";
-				}
+			//	}else{
+			//		echo "Ocorreu um erro na Inserecao";
+			//	}
 				
-				$statement->close();
-				$page=shell_exec("python xlsx_to_csv.py " .$destino. " ".$file_name. " " .$value); 
+			//	$statement->close();
+				
+				if($value == 1){
+					$page=shell_exec("python xlsx2csv_and_change_name.py ../" . $file_name . " "  . $_SESSION["id"] . " ./Files/Blood_Pressure/");
+					$page=shell_exec("python merge_files_csv.py ". $_SESSION["id"] ." Blood_Pressure/");  
+					$page=shell_exec("python processar_blood_pressure.py ./Files/Blood_Pressure/" . $_SESSION["id"] . "_merged.csv");
+					$page=shell_exec("python base_temporal.py ./Files/Blood_Pressure/" .$_SESSION["id"]. "_merged_calculado.csv 1");
+					$page=shell_exec("python base_temporal.py ./Files/Blood_Pressure/" . $_SESSION["id"] ."_merged_calculado.csv 7");
+					$page=shell_exec("python base_temporal.py ./Files/Blood_Pressure/" . $_SESSION["id"] . "_merged_calculado.csv 30");
+					$page=shell_exec("python base_temporal.py ./Files/Blood_Pressure/" . $_SESSION["id"] . "_merged_calculado.csv 365");
+					
+				}elseif ($value == 2){
+					$page=shell_exec("python xlsx2csv_and_change_name.py ../BloodPressure_202108-202201.xlsx 2 ./Files/Oximeter/"); 
+					$page=shell_exec("python merge_files_csv.py 2 Oximeter/"); 
+					$page=shell_exec("python processar_blood_pressure.py "); 
+					echo "1234";
+				}
+
 				
 				header("Location: ../Frontend/index.php");
+
+
+
 			}else{
 			    echo "Erro no upload";
 			}
 
 		}else
 			header("Location: ../Frontend/index.php");
+			
 			//echo "<script>alert('Bruh')</script>";
 			//echo "Este servidor não suporta este tipo de ficheiros";
-
-	}
+		}
 ?>

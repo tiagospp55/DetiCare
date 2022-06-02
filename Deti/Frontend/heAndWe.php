@@ -14,8 +14,7 @@
       $query = "INSERT INTO dados".$_SESSION["id"]."(peso,altura,dataInser,IMC) VALUES(?,?,?,?)";
       $statement = $conn->prepare($query);
       $dataIn = date("Y-m-d");
-      $imc=$_POST['peso']/($_POST['he']*$_POST['he']);
-      
+      $imc=$_POST['peso']/$_POST['he']*$_POST['he'];
       $statement->bind_param('ssss',$_POST['peso'],$_POST['he'],$dataIn,$imc);
       if ($statement->execute() && $statement->affected_rows > 0) {
         $statement->close();
@@ -27,6 +26,7 @@
       $statement = $conn->prepare($query);
       $dataIn = date("Y-m-d");
       $imc=$_POST['peso']/($_POST['he']*$_POST['he']);
+      $imc = $imc * 10000;
       
       $statement->bind_param('ssss',$_POST['peso'],$_POST['he'],$dataIn,$imc);
       if ($statement->execute() && $statement->affected_rows > 0) {
