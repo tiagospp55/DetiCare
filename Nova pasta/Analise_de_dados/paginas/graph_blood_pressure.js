@@ -14,7 +14,7 @@
 					let sys_max= []
 					let sys_min= []
 					for (let key of Object.keys(json_file)) {
-						labels.push(json_file[key]["Measurement Date"].substring(0,11))
+						labels.push(json_file[key]["Date"].substring(0,11))
 						pulse.push(json_file[key]["Pulse_mean"])
 						dia_min.push(json_file[key]["DIA_min"])
 						dia_max.push(json_file[key]["DIA_max"])
