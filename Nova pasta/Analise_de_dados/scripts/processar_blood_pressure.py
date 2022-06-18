@@ -28,7 +28,7 @@ for x in dates:
 
 
 new_df=pd.DataFrame()
-new_df['Measurement Date']=days
+new_df['Date']=days
 new_df['Pulse_mean']=pulses_mean
 new_df['DIA_mean']=DIA_mean
 new_df['DIA_min']=DIA_min
