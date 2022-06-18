@@ -1,4 +1,44 @@
 <?php
+	if (isset($_POST["doc"])) {
+		
+		if (!empty($_POST["login2"])){
+			if($_POST["login2"]=="in"){
+				$qa="SELECT id,nome,email,pass FROM medicos where email=?";
+				$sa=$conn->prepare($qa);
+				$sa->bind_param('s',$_POST['maillog']);
+				$sa->execute();
+				$sa->bind_result($id,$nome,$email,$pass);
+				$sa->fetch();
+				
+				if (password_verify($_POST['passlog'], $pass)) {
+					$_SESSION["id"]=$id;
+					$_SESSION["email"]=$email;
+					$_SESSION["nome"]=$nome;
+					$_SESSION["med"]="S";
+					$_SESSION["sessao"]=session_id();
+					header("location: index.php");
+				}else{
+					$smg="Palavra pass incorreta";
+				}
+
+				$sa->close();	
+			}else{
+				$_SESSION["id"]="";
+				$_SESSION["email"]="";
+				$_SESSION["nome"]="";
+				$_SESSION["medico"]="";
+				$_SESSION["sessao"]="";
+				$_SESSION["med"]="";
+							
+				header("location: login.php");
+			}
+		}
+
+
+
+
+
+	}else{
 		if (!empty($_POST["login2"])){
 			if($_POST["login2"]=="in"){
 				$qa="SELECT id,email,nome,password,Disponivel,idMedico,peso,idade,altura,DataNascimento,Telemovel,Localidade FROM users where email=?";
@@ -34,10 +74,17 @@
 				$_SESSION["email"]="";
 				$_SESSION["nome"]="";
 				$_SESSION["medico"]="";
+				$_SESSION["peso"]="";
+				$_SESSION["idade"]="";
+				$_SESSION["altura"]="";
+				$_SESSION["DN"]="";
+				$_SESSION["nmr"]="";
+				$_SESSION["loc"]="";
+				$_SESSION["med"]="";
 				$_SESSION["sessao"]="";
 							
 				header("location: login.php");
 			}
 		}
-
-	?>
+	}
+?>

@@ -45,7 +45,7 @@
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="doctor">
+              <input type="checkbox" id="doctor" name="doc">
               <label for="doctor">
                 Are you a doctor?
                 <!-- checkbox para a cena do doutor -->

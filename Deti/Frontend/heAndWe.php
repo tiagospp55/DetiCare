@@ -11,24 +11,25 @@
       $_SESSION["altura"]=$_POST['he'];
 
 
-      $query = "INSERT INTO dados".$_SESSION["id"]."(peso,altura,dataInser,IMC) VALUES(?,?,?,?)";
+      $query = "INSERT INTO Data(id,peso,altura,dataInser,IMC) VALUES(?,?,?,?,?)";
       $statement = $conn->prepare($query);
       $dataIn = date("Y-m-d");
       $imc=$_POST['peso']/$_POST['he']*$_POST['he'];
-      $statement->bind_param('ssss',$_POST['peso'],$_POST['he'],$dataIn,$imc);
+      $imc = $imc * 10000;
+      $statement->bind_param('sssss',$_SESSION["id"],$_POST['peso'],$_POST['he'],$dataIn,$imc);
       if ($statement->execute() && $statement->affected_rows > 0) {
         $statement->close();
       }
 
       echo "<script type='text/javascript'>window.location.href = 'index.php';</script>";
     } else {
-      $query = "INSERT INTO dados".$_SESSION["id"]."(peso,altura,dataInser,IMC) VALUES(?,?,?,?)";
+      $query = "INSERT INTO Data(id,peso,altura,dataInser,IMC) VALUES(?,?,?,?,?)";
       $statement = $conn->prepare($query);
       $dataIn = date("Y-m-d");
       $imc=$_POST['peso']/($_POST['he']*$_POST['he']);
       $imc = $imc * 10000;
       
-      $statement->bind_param('ssss',$_POST['peso'],$_POST['he'],$dataIn,$imc);
+      $statement->bind_param('sssss',$_SESSION["id"],$_POST['peso'],$_POST['he'],$dataIn,$imc);
       if ($statement->execute() && $statement->affected_rows > 0) {
         $statement->close();
       }

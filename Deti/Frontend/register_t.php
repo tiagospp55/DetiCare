@@ -146,7 +146,7 @@
               $rand = '';
               foreach (array_rand($seed, 5) as $k) $rand .= $seed[$k];
               $p = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-              $query = "INSERT INTO users(email,nome,password,ConfCodeEmail,emailConf,Disponivel,idMedico,idade,DataNascimento) VALUES(?,?,?,?,?,'SIM',?,?,?)";
+              $query = "INSERT INTO users(email,nome,password,ConfCodeEmail,emailConf,Disponivel,idMedico,idade,DataNascimento,peso,altura,Telemovel,Localidade) VALUES(?,?,?,?,?,'SIM',?,?,?,'','','','')";
               $statement = $conn->prepare($query);
               $ya = 'N';
               $idd2=date("Y", strtotime($_POST['dn']));
@@ -157,23 +157,6 @@
               $statement->bind_param('ssssssss', $_POST['email'], $_POST['name'], $p, $rand, $ya,$_POST['med'],$idd,$_POST['dn']);
               if ($statement->execute() && $statement->affected_rows > 0) {
                 $statement->close();
-
-                $query = "SELECT id FROM users where email=?";
-                $statement = $conn->prepare($query);
-                $statement->bind_param('s', $_POST['email']);
-                $statement->execute();
-                $statement->bind_result($id2);
-                $statement->fetch();
-                $statement->close();
-                echo $id2;
-                $query = "CREATE TABLE dados".$id2."(peso VARCHAR(255) NOT NULL, altura VARCHAR(255) NOT NULL, dataInser DATE, IMC VARCHAR(255) NOT NULL)";
-                $statement = $conn->prepare($query);
-                if ($statement->execute() && $statement->affected_rows > 0) {
-                }else{
-                  echo "ERRO";
-                }
-
-
                 echo "<script type='text/javascript'>window.location.href = 'login_t.php';</script>";
               } else {
                 echo "<h4>Ocorreu um erro na insereção</h4>";
