@@ -1,0 +1,5 @@
+xlxs
+	mudar para id e com uma identificaçao da noite
+prepro_
+	detetar periodic
+basetemporal
