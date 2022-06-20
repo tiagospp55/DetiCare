@@ -36,6 +36,11 @@ include("../functions.php");
     <div class="row mb-2">
       <div class="col-sm-6">
         <h1>Heart Beat</h1>
+        <?php
+          if ($_SESSION["med"]=="S") {
+            include "../ListaDePacientes.php";
+          }
+        ?>
       </div>
     </div>
   </div><!-- /.container-fluid -->

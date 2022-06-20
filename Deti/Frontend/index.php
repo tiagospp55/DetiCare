@@ -10,7 +10,12 @@
     header("location: login_t.php");
   }*/
   if (!isset($_SESSION["last_page"])) {
-    $_SESSION["last_page"] = 'profile.php';
+    if ($_SESSION["med"]=="N") {
+      $_SESSION["last_page"] = 'profile.php';
+    }else{
+      $_SESSION["last_page"] = 'contacts.php';
+    }
+    
   }
 ?>
 
@@ -58,14 +63,30 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
+        <?php
+          if ($_SESSION["med"]=="N") {    
+        ?>
         <a class="nav-link" onclick="go_to('profile.php')">Profile</a>
+        <?php
+          }else{
+        ?>
+          <a class="nav-link" onclick="go_to('profileMed.php')">Profile</a>
+        <?php
+          }
+        ?>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a class="nav-link" onclick="go_to('contacts.php')">Contact</a>
       </li>
+      <?php
+        if ($_SESSION["med"]=="N") {
+      ?>
       <li class="nav-item d-none d-sm-inline-block">
         <a class="nav-link" onclick="go_to('upload.php')">Uploads</a>
       </li>
+      <?php
+        }
+      ?>
     </ul>
 
     <!-- Right navbar links -->
@@ -116,13 +137,41 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a onclick="go_to('profile.php')" class="nav-link " id="profile">
+            <?php
+              if ($_SESSION["med"]=="N") {
+              
+            ?>
+              <a onclick="go_to('profile.php')" class="nav-link " id="profile">
+            <?php
+              }else{
+            ?>
+              <a onclick="go_to('profileMed.php')" class="nav-link " id="profile">
+            <?php
+              }
+            ?>
               <i class="fa-solid fa-user nav-icon"></i>
               <p>
                 Profile
               </p>
             </a>
           </li>
+          <?php
+            if ($_SESSION["med"]=="N") {
+          ?>
+          <li class="nav-item ">
+            <a onclick="go_to('../Calendario.php')" class="nav-link " id="upload">
+              <i class="fa-solid fa-file-upload nav-icon" ></i>
+              <p>
+                Calendar
+              </p>
+            </a>
+          </li>
+          <?php
+            }
+          ?>
+          <?php
+            if ($_SESSION["med"]=="N") {
+          ?>
           <li class="nav-item ">
             <a onclick="go_to('upload.php')" class="nav-link " id="upload">
               <i class="fa-solid fa-file-upload nav-icon" ></i>
@@ -132,6 +181,9 @@
               </p>
             </a>
           </li>
+          <?php
+            }
+          ?>
           <li class="nav-item ">
             <a onclick="go_to('graph.php')" class="nav-link " id="graph">
               <i class="fa-solid fa-heart nav-icon "></i>
