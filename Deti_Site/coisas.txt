@@ -1,0 +1,42 @@
+/////////////////////////// Retirei merdas daqui 1 ///////////////////////
+
+<?php
+		if (isset($_POST["submiter"])) {
+			if (isset($_POST["passlog"]) && isset($_POST["maillog"])) {
+				$query = "SELECT Pass FROM logins where Email=?";
+				$statement = $conn->prepare($query);
+				$statement->bind_param('s',$_POST["maillog"]);
+				$statement->execute();
+				$statement->bind_result($pasconf);
+				if ($statement->fetch()) {
+					if (password_verify($_POST["passlog"],$pasconf)) {
+						echo "Password Valid";
+					}else{
+						echo "Password invalida ou email ja registado com outro id";
+					}
+				}else {
+					echo "<div>Email nao encontrado!</div>";
+				}
+				$statement->close();
+			}
+		}
+	?>
+
+
+/////////////////////////////////////////REGMEDICOS///////////////////////////////////////
+<?php
+ 	$output = '';
+     $query = "SELECT nome FROM medicos ORDER BY id";
+     $statement = $conn->prepare($query);
+     $statement->execute();
+     $statement->bind_result($nome);
+     if ($statement->fetch()) {
+          echo '<h2 style="font-family:roboto;">O Email que colocou ja esta registado</h2>';
+          $statement->close();
+     } else {
+          $statement->close();
+      	$output .= '<option value="'.$row["nome"].'">'.$row["nome"].'</option>';
+          }
+	}
+	echo $output;
+?>
