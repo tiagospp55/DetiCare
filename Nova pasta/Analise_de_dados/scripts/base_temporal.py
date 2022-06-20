@@ -57,6 +57,6 @@ def csv_to_json(csvFilePath, jsonFilePath):
 
 
 new_df.to_csv('tmp.csv',index=False)
-csv_to_json("tmp.csv",destino+file_name[:-4]+'.json')
+csv_to_json("tmp.csv",destino+file_name[:-4]+'_'+delta+'.json')
 #csv_to_json("tmp.csv",destino+'file_para_usar_no_graph.json')
 os.remove("tmp.csv")
