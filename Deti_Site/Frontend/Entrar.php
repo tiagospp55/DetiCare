@@ -15,6 +15,17 @@
 					$_SESSION["email"]=$email;
 					$_SESSION["nome"]=$nome;
 					$_SESSION["med"]="S";
+					$_SESSION["Pid"]=$id;
+					$_SESSION["Pemail"]=$email;
+					$_SESSION["Pnome"]=$nome;
+					$_SESSION["Pmedico"]=$med;
+					$_SESSION["Ppeso"]=$peso;
+					$_SESSION["Pidade"]=$idd;
+					$_SESSION["Paltura"]=$alt;
+					$_SESSION["PDN"]=$DN;
+					$_SESSION["Pnmr"]=$tl;
+					$_SESSION["Ploc"]=$lc;
+					$_SESSION["Pmed"]="N";
 					$_SESSION["sessao"]=session_id();
 					header("location: index.php");
 				}else{
@@ -29,7 +40,17 @@
 				$_SESSION["medico"]="";
 				$_SESSION["sessao"]="";
 				$_SESSION["med"]="";
-							
+				$_SESSION["Pid"]="";
+				$_SESSION["Pemail"]="";
+				$_SESSION["Pnome"]="";
+				$_SESSION["Pmedico"]="";
+				$_SESSION["Ppeso"]="";
+				$_SESSION["Pidade"]="";
+				$_SESSION["Paltura"]="";
+				$_SESSION["PDN"]="";
+				$_SESSION["Pnmr"]="";
+				$_SESSION["Ploc"]="";
+				$_SESSION["Pmed"]="";			
 				header("location: login.php");
 			}
 		}
