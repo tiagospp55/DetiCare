@@ -20,28 +20,24 @@
                 
 
                 <h3 class="profile-username text-center">
-                	<?php
-          				if ($_SESSION["med"]=="S") {
-            				include "../ListaDePacientes.php";
-         				}
-        			?>
+                	<?php ?>
                 </h3>
 
                 <p></p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Peso</b> <a class="float-right" id="acao"><?php echo '<p class="text-muted">'.$_SESSION["peso"].' </p>'?></a>
+                    <b>Peso</b> <a class="float-right" id="acao"><?php echo '<p class="text-muted">'.$_SESSION["Ppeso"].' </p>'?></a>
                   </li>
 
                   <li class="list-group-item">
-                    <b>Altura</b> <a class="float-right" id="acao"><?php echo '<p class="text-muted">'.$_SESSION["altura"].' </p>'?></a>
+                    <b>Altura</b> <a class="float-right" id="acao"><?php echo '<p class="text-muted">'.$_SESSION["Paltura"].' </p>'?></a>
                   </li>
                   <li class="list-group-item">
-                    <b>Idade</b> <a class="float-right"><?php echo '<p class="text-muted">'.$_SESSION["idade"].' </p>'?></a>
+                    <b>Idade</b> <a class="float-right"><?php echo '<p class="text-muted">'.$_SESSION["Pidade"].' </p>'?></a>
                   </li>
                   <li class="list-group-item">
-                    <b style="font-size:80%">Data de Nascimento</b> <a class="float-right"><?php echo '<p class="text-muted">'.$_SESSION["DN"].' </p>'?></a>
+                    <b style="font-size:80%">Data de Nascimento</b> <a class="float-right"><?php echo '<p class="text-muted">'.$_SESSION["PDN"].' </p>'?></a>
                   </li>
 </ul>
               </div>
@@ -59,8 +55,8 @@
                 <strong></i> Phone Number</strong>
 
                 <?php 
-                
-                	echo '<p class="text-muted">'.$_SESSION['Pnmr'].' </p>';
+
+                	echo '<p class="text-muted">'.$_SESSION['Pnmr'].'</p>';
 
                 ?>
 
@@ -68,14 +64,14 @@
 
                 <?php 
                 
-                echo '<p class="text-muted">'.$_SESSION['loc'].' </p>'
+                echo '<p class="text-muted">'.$_SESSION['Ploc'].' </p>'
                 
                 ?>
                 <strong>Doctor</strong>
                 <?php 
                 
                 echo '<p class="text-muted">';
-                 if($_SESSION["medico"]==-1){echo "Dont have 1";}else{echo $_SESSION["medico"];}
+                 if($_SESSION["Pmedico"]==-1){echo "Dont have 1";}else{echo $_SESSION["Pmedico"];}
                 echo ' </p>';
                 
                 ?>

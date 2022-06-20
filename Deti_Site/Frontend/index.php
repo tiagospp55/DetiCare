@@ -9,6 +9,7 @@
   if ($_SESSION["sessao"]=="") {
     header("location: login_t.php");
   }*/
+  $_SESSION["last_page"] = 'profileMed.php';
   if (!isset($_SESSION["last_page"])) {
     if ($_SESSION["med"]=="N") {
       $_SESSION["last_page"] = 'profile.php';
@@ -305,14 +306,13 @@
         <script>
           
             $(document).ready(function(){
-            $('#med').change(function(){alert("III");
+            $('#med').change(function(){
                 //Selected value
                 var inputValue = $(this).val();
-                alert("value in js "+inputValue);
 
                 //Ajax for calling php function
-                $.post('submit.php', { dropdownValue: inputValue }, function(data){
-                    alert('ajax completed. Response:  '+data);
+                $.post('Calendar.php', { dropdownValue: inputValue }, function(data){
+                    window.location.reload();
                     //do after submission operation in DOM
                 });
             });
