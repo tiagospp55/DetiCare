@@ -6,7 +6,8 @@ import csv
 import json
 
 file_name=sys.argv[1]
-delta=sys.argv[2]
+destino=sys.argv[2]
+delta=sys.argv[3]
 
 arg_date=datetime.date.today()
 
@@ -56,5 +57,5 @@ def csv_to_json(csvFilePath, jsonFilePath):
 
 
 new_df.to_csv('tmp.csv',index=False)
-csv_to_json("tmp.csv",'../teste/file_para_usar_no_graph.json')
+csv_to_json("tmp.csv",destino+'file_para_usar_no_graph.json')
 os.remove("tmp.csv")

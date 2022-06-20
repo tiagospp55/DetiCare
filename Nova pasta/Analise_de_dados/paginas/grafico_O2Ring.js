@@ -1,5 +1,5 @@
 let httpRequest = new XMLHttpRequest();
-httpRequest.open("GET", "../O2Ring-20220207053010_OXIRecord_processado.json", true);
+httpRequest.open("GET", "./O2Ring-20220207053010_OXIRecord_processado.json", true);
 httpRequest.send();
 httpRequest.addEventListener("readystatechange", function()
 {
