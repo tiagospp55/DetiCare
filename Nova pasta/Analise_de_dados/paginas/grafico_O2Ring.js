@@ -1,5 +1,6 @@
 let httpRequest = new XMLHttpRequest();
-httpRequest.open("GET", "./O2Ring-20220207053010_OXIRecord_processado.json", true);
+//httpRequest.open("GET", "./O2Ring-20220207053010_OXIRecord_processado.json", true);
+httpRequest.open("GET", "../scripts/scripts_O2/id_teste_O2Ring-20220207_processado_detetado.json", true);
 httpRequest.send();
 httpRequest.addEventListener("readystatechange", function()
 {
@@ -9,13 +10,28 @@ httpRequest.addEventListener("readystatechange", function()
         let labels = []
         let SpO2_= []
         let Pulse_Rate= []
-        let Motion= []
+        let periodic= [],periodic_labels=[]
         for (let key of Object.keys(json_file)){
             labels.push(json_file[key]["Time"].substring(0,8))
             SpO2_.push(json_file[key]["SpO2(%)"])
             Pulse_Rate.push(json_file[key]["Pulse Rate(bpm)"])
-            Motion.push(json_file[key]["Motion"])
+            periodic.push(json_file[key]["PERIODIC_BREATHING"])
+            periodic_labels.push(json_file[key]["labels_periodic"])
         }
+        let real_labels=[],real_periodic=[],periodic_=[]
+        for (let i=0; i<periodic.length;i++){
+            if (periodic[i]==1){
+                periodic_.push(99);
+                //real_labels.push(periodic_labels[i]);
+                //real_periodic.push(99);
+            }
+            else{
+                periodic_.push(100);
+            }
+        }
+        console.log(real_periodic);
+        console.log(real_labels);
+        console.log(periodic_);
 
         var SpO2 = SpO2_.map(function (x){
             return parseInt(x, 10);
@@ -83,6 +99,16 @@ httpRequest.addEventListener("readystatechange", function()
                                     fill: false
                                 },
                                 {
+                                    data: periodic_,
+                                    label: "periodic",
+                                    borderColor: "#000000",
+                                    backgroundColor: '#000000',
+                                    yAxisID: 'y',
+                                    pointRadius: 0,
+                                    borderWidth: 2,
+                                    fill: false
+                                },
+                                {
                                     data: Pulse_Rate,
                                     label: "Pulse Rate",
                                     borderColor: "#e00000",
@@ -101,8 +127,7 @@ httpRequest.addEventListener("readystatechange", function()
                             {
                                 display: true,
                                 text: 'Pulse by time'
-                            }
-                        ,
+                            },
                         scales: {
                             y: {
                                 type: 'linear',
