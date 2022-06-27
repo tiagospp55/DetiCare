@@ -9,11 +9,12 @@
   if ($_SESSION["sessao"]=="") {
     header("location: login_t.php");
   }*/
+  $_SESSION["last_page"] = 'profileMed.php';
   if (!isset($_SESSION["last_page"])) {
     if ($_SESSION["med"]=="N") {
       $_SESSION["last_page"] = 'profile.php';
     }else{
-      $_SESSION["last_page"] = 'contacts.php';
+      $_SESSION["last_page"] = 'profileMed.php';
     }
     
   }
@@ -87,6 +88,14 @@
       <?php
         }
       ?>
+      <?php
+        if ($_SESSION["med"]=="S") {
+      ?>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a class="nav-link"><?php include "ListaDePacientes.php";?></a>
+      <?php
+        }
+      ?>
     </ul>
 
     <!-- Right navbar links -->
@@ -155,20 +164,6 @@
               </p>
             </a>
           </li>
-          <?php
-            if ($_SESSION["med"]=="N") {
-          ?>
-          <li class="nav-item ">
-            <a onclick="go_to('../Calendario.php')" class="nav-link " id="upload">
-              <i class="fa-solid fa-file-upload nav-icon" ></i>
-              <p>
-                Calendar
-              </p>
-            </a>
-          </li>
-          <?php
-            }
-          ?>
           <?php
             if ($_SESSION["med"]=="N") {
           ?>
@@ -307,7 +302,22 @@
   
 </script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+          
+            $(document).ready(function(){
+            $('#med').change(function(){
+                //Selected value
+                var inputValue = $(this).val();
 
+                //Ajax for calling php function
+                $.post('Calendar.php', { dropdownValue: inputValue }, function(data){
+                    window.location.reload();
+                    //do after submission operation in DOM
+                });
+            });
+        });
+        </script>
 
 </body>
 </html>

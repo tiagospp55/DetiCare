@@ -1,6 +1,5 @@
-
 <select name="med" id="med" style="width:88%;">
-<option value="-1">Don't have a patient selected</option>
+<option value="-1">Escolher</option>
 <?php
 	$conne=new mysqli('localhost','root','','peebd2');
     $sql = "SELECT * FROM users WHERE idMedico=".$_SESSION["id"]." ORDER BY nome";

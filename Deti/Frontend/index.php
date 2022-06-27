@@ -159,20 +159,6 @@
             if ($_SESSION["med"]=="N") {
           ?>
           <li class="nav-item ">
-            <a onclick="go_to('../Calendario.php')" class="nav-link " id="upload">
-              <i class="fa-solid fa-file-upload nav-icon" ></i>
-              <p>
-                Calendar
-              </p>
-            </a>
-          </li>
-          <?php
-            }
-          ?>
-          <?php
-            if ($_SESSION["med"]=="N") {
-          ?>
-          <li class="nav-item ">
             <a onclick="go_to('upload.php')" class="nav-link " id="upload">
               <i class="fa-solid fa-file-upload nav-icon" ></i>
               <p>
