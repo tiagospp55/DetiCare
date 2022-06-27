@@ -70,10 +70,10 @@ while i < len(o2values)-n:
 		intervalos.append(t_window[-1])
 
 		# show in frequency domain
-		plt.plot(xf,yf_abs)
-		plt.title(str(i)+'-'+str(i+n))
-		plt.plot(xf,yf_abs,linewidth=1)
-		plt.show()
+		#plt.plot(xf,yf_abs)
+		#plt.title(str(i)+'-'+str(i+n))
+		#plt.plot(xf,yf_abs,linewidth=1)
+		#plt.show()
 		"""
 		# show in time domain
 		plt.title('inverso FFT')
