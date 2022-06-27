@@ -4,10 +4,12 @@ from scipy.fft import fft,fftfreq,ifft
 import matplotlib.pyplot as plt
 import sys
 
+file=sys.argv[1]
+destino=sys.argv[2]
 
-file_name=sys.argv[1]
-df=pd.read_csv(file_name)
-df.pop('Unnamed: 6')
+df=pd.read_csv(file)#,delimiter=';')
+
+df=df.loc[df['Pulse Rate(bpm)']<65535]
 
 o2values=df['SpO2(%)'].values
 t=df['Time']
@@ -95,11 +97,7 @@ for x in range(len(df)):
 
 df['PERIODIC_BREATHING']=flags_periodic
 df['labels_periodic']=labels
-destino=sys.argv[2]
 df.to_csv(destino+file_name[:-4]+'_detetado.csv')
-
-
-
 
 
 

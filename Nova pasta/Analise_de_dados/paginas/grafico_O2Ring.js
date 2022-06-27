@@ -1,6 +1,6 @@
 let httpRequest = new XMLHttpRequest();
 //httpRequest.open("GET", "./O2Ring-20220207053010_OXIRecord_processado.json", true);
-httpRequest.open("GET", "../scripts/scripts_O2/id_teste_O2Ring-20220207_processado_detetado.json", true);
+httpRequest.open("GET", "../scripts/scripts_O2/id_teste_O2Ring-20220206_processado_detetado.json", true);
 httpRequest.send();
 httpRequest.addEventListener("readystatechange", function()
 {
@@ -99,16 +99,6 @@ httpRequest.addEventListener("readystatechange", function()
                                     fill: false
                                 },
                                 {
-                                    data: periodic_,
-                                    label: "periodic",
-                                    borderColor: "#000000",
-                                    backgroundColor: '#000000',
-                                    yAxisID: 'y',
-                                    pointRadius: 0,
-                                    borderWidth: 2,
-                                    fill: false
-                                },
-                                {
                                     data: Pulse_Rate,
                                     label: "Pulse Rate",
                                     borderColor: "#e00000",
@@ -118,6 +108,17 @@ httpRequest.addEventListener("readystatechange", function()
                                     borderWidth: 2,
                                     fill: false
                                 },
+                                {
+                                    data: periodic_,
+                                    label: "periodic",
+                                    borderColor: "#000000",
+                                    backgroundColor: '#000000',
+                                    yAxisID: 'y',
+                                    pointRadius: 0,
+                                    borderWidth: 2,
+                                    fill: false
+                                },
+                                
                             ]
                     },
                 options:
